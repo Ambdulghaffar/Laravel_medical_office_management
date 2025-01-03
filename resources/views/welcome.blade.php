@@ -91,10 +91,10 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item"><a class="nav-link" href="index.html"></i>Acceuil</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#"></i>Acceuil</a></li>
                             <li class="nav-item"><a class="nav-link" href="doctors.html">Inscription</a></li>
                             <li class="nav-item"><a class="nav-link" href="department.html">Se connecter</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -598,7 +598,7 @@
                 </div>
 
                 <div class="col-lg-4 col-md-6 single-footer-widget">
-                    <h4>contacts</h4>
+                    <h4>Contactez-nous</h4>
                     <p> <i class="bi bi-envelope me-3"></i>
                         <a class="dn_btn" href="mailto:medical@example.com">medical@example.com</a>
                     </p>
