@@ -173,7 +173,9 @@
                     <h3>Service de santé exceptionnel</h3>
                 </div>
                 <div class="col-md-7 col-xl-8">
-                    <p>Découvrez nos services de santé personnalisés, allant des consultations médicales aux soins spécialisés, en passant par la gestion des rendez-vous en ligne. Nous nous engageons à offrir des soins de qualité, attentifs et adaptés à vos besoins pour une meilleure qualité de vie.</p>
+                    <p>Découvrez nos services de santé personnalisés, allant des consultations médicales aux soins
+                        spécialisés, en passant par la gestion des rendez-vous en ligne. Nous nous engageons à offrir
+                        des soins de qualité, attentifs et adaptés à vos besoins pour une meilleure qualité de vie.</p>
                 </div>
             </div>
             <div class="row">
@@ -183,31 +185,40 @@
                             <i class="bi bi-person-wheelchair fs-1"></i>
                         </span>
                         <h3 class="card-service__title">Consultations Cardiologiques</h3>
-                        <p class="card-service__subtitle">Nos consultations cardiologiques permettent un diagnostic précis et une évaluation complète des conditions cardiaques. Nous utilisons des technologies avancées comme l'ECG, l'échocardiogramme et le test d'effort pour fournir des solutions adaptées à chaque patient.</p>
+                        <p class="card-service__subtitle">Nos consultations cardiologiques permettent un diagnostic
+                            précis et une évaluation complète des conditions cardiaques. Nous utilisons des technologies
+                            avancées comme l'ECG, l'échocardiogramme et le test d'effort pour fournir des solutions
+                            adaptées à chaque patient.</p>
                     </div>
                 </div>
-            
+
                 <div class="col-md-6 col-lg-4">
                     <div class="card-service text-center text-lg-left mb-4 mb-lg-0">
                         <span class="card-service__icon">
                             <i class="bi bi-postcard-heart fs-1"></i>
                         </span>
                         <h3 class="card-service__title">Examens de Diagnostic Cardiaque</h3>
-                        <p class="card-service__subtitle">Nous offrons une gamme d'examens de diagnostic pour évaluer la santé cardiaque, y compris l'ECG, l'échocardiogramme Doppler et le Holter ECG. Nos spécialistes utilisent ces outils pour surveiller et traiter efficacement les maladies cardiaques.</p>
+                        <p class="card-service__subtitle">Nous offrons une gamme d'examens de diagnostic pour évaluer
+                            la santé cardiaque, y compris l'ECG, l'échocardiogramme Doppler et le Holter ECG. Nos
+                            spécialistes utilisent ces outils pour surveiller et traiter efficacement les maladies
+                            cardiaques.</p>
                     </div>
                 </div>
-            
+
                 <div class="col-md-6 col-lg-4">
                     <div class="card-service text-center text-lg-left mb-4 mb-lg-0">
                         <span class="card-service__icon">
                             <i class="flaticon-face"></i>
                         </span>
                         <h3 class="card-service__title">Réadaptation Cardiaque</h3>
-                        <p class="card-service__subtitle">Notre programme de réadaptation cardiaque aide les patients à récupérer après une chirurgie cardiaque ou une crise cardiaque. Nous proposons un suivi personnalisé, de l'exercice supervisé, et des conseils en mode de vie pour favoriser une guérison complète et un retour à la vie normale.</p>
+                        <p class="card-service__subtitle">Notre programme de réadaptation cardiaque aide les patients à
+                            récupérer après une chirurgie cardiaque ou une crise cardiaque. Nous proposons un suivi
+                            personnalisé, de l'exercice supervisé, et des conseils en mode de vie pour favoriser une
+                            guérison complète et un retour à la vie normale.</p>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
     <!--================ Service section end =================-->
@@ -221,8 +232,12 @@
                 <div class="col-md-10 offset-md-1 col-lg-6 offset-lg-6 offset-xl-7 col-xl-5">
                     <div class="about-content">
                         <h4>Cabinet expert en Cardiologie avec prise de Rendez-vous en ligne</h4>
-                        <h6>Offrez-vous des soins cardiaques d’excellence grâce à des experts, avec des rendez-vous en ligne accessibles à tout moment</h6>
-                        <p>Prenez votre santé en main grâce à notre service en ligne simple et rapide. Gagnez du temps en réservant vos rendez-vous où que vous soyez. Accédez à un suivi personnalisé et bénéficiez de l’expertise d’un cabinet de cardiologie réputé pour la qualité de ses soins.</p>
+                        <h6>Offrez-vous des soins cardiaques d’excellence grâce à des experts, avec des rendez-vous en
+                            ligne accessibles à tout moment</h6>
+                        <p>Prenez votre santé en main grâce à notre service en ligne simple et rapide. Gagnez du temps
+                            en réservant vos rendez-vous où que vous soyez. Accédez à un suivi personnalisé et
+                            bénéficiez de l’expertise d’un cabinet de cardiologie réputé pour la qualité de ses soins.
+                        </p>
 
                         <a href="" class="main_btn">Prendre rendez-vous</a>
 
@@ -233,22 +248,25 @@
     </section>
     <!--================About Area End =================-->
 
-      <!--================ Team section start =================-->  
-      <section class="team-area area-padding">
+    <!--================ Team section start =================-->
+    <section class="team-area area-padding">
         <div class="container">
             <div class="area-heading row">
                 <div class="col-md-5 col-xl-4">
                     <h3>Docteurs de confiance à votre service</h3>
                 </div>
                 <div class="col-md-7 col-xl-8">
-                    <p>Nos docteurs, experts en soins, vous accompagnent avec un suivi personnalisé et des soins de qualité. Prenez facilement vos rendez-vous en ligne pour un accès rapide et simple à nos services.</p>
+                    <p>Nos docteurs, experts en soins, vous accompagnent avec un suivi personnalisé et des soins de
+                        qualité. Prenez facilement vos rendez-vous en ligne pour un accès rapide et simple à nos
+                        services.</p>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card card-team">
-                        <img class="card-img rounded-0" src="{{ asset('medcare-master/img/team/1.jpg') }}" alt="">
+                        <img class="card-img rounded-0" src="{{ asset('medcare-master/img/team/1.jpg') }}"
+                            alt="">
                         <div class="card-team__body text-center">
                             <h3><a href="#">Dr Adam Hibaoui</a></h3>
                             <p>Cardiologue</p>
@@ -259,15 +277,16 @@
                                     <li><a href="#"><i class="bi bi-twitter-x"></i></a></li>
                                     <li><a href="#"><i class="bi bi-instagram"></i></a></li>
                                     <li><a href="#"><i class="bi bi-skype"></i></a></li>
-                                </ul> 
-                            </div> 
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card card-team">
-                        <img class="card-img rounded-0" src="{{ asset('medcare-master/img/team/2.jpg') }}" alt="">
+                        <img class="card-img rounded-0" src="{{ asset('medcare-master/img/team/2.jpg') }}"
+                            alt="">
                         <div class="card-team__body text-center">
                             <h3><a href="#">Dr Adnoun walid</a></h3>
                             <p>Cardiologue</p>
@@ -278,15 +297,16 @@
                                     <li><a href="#"><i class="bi bi-twitter-x"></i></a></li>
                                     <li><a href="#"><i class="bi bi-instagram"></i></a></li>
                                     <li><a href="#"><i class="bi bi-skype"></i></a></li>
-                                </ul> 
-                            </div> 
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card card-team">
-                        <img class="card-img rounded-0" src="{{ asset('medcare-master/img/team/3.jpg') }}" alt="">
+                        <img class="card-img rounded-0" src="{{ asset('medcare-master/img/team/3.jpg') }}"
+                            alt="">
                         <div class="card-team__body text-center">
                             <h3><a href="#">Dr Madjid Anli</a></h3>
                             <p>Cardiologue</p>
@@ -297,15 +317,15 @@
                                     <li><a href="#"><i class="bi bi-twitter-x"></i></a></li>
                                     <li><a href="#"><i class="bi bi-instagram"></i></a></li>
                                     <li><a href="#"><i class="bi bi-skype"></i></a></li>
-                                </ul> 
-                            </div> 
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--================ Team section end =================-->  
+    <!--================ Team section end =================-->
 
 
     <!--================ appointment Area Starts =================-->
@@ -332,7 +352,9 @@
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                     data-parent="#accordionExample">
                                     <div class="card-body">
-                                        Oui, vous devez vous connecter à votre compte pour réserver un rendez-vous en ligne. Si vous n’avez pas encore de compte, vous pouvez en créer un facilement sur notre site.
+                                        Oui, vous devez vous connecter à votre compte pour réserver un rendez-vous en
+                                        ligne. Si vous n’avez pas encore de compte, vous pouvez en créer un facilement
+                                        sur notre site.
                                     </div>
                                 </div>
                             </div>
@@ -350,7 +372,9 @@
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                     data-parent="#accordionExample">
                                     <div class="card-body">
-                                        Vous pouvez facilement réserver votre rendez-vous en ligne en utilisant notre plateforme de réservation. Il vous suffit de sélectionner la date et l’heure qui vous conviennent.
+                                        Vous pouvez facilement réserver votre rendez-vous en ligne en utilisant notre
+                                        plateforme de réservation. Il vous suffit de sélectionner la date et l’heure qui
+                                        vous conviennent.
                                     </div>
                                 </div>
                             </div>
@@ -368,7 +392,9 @@
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                     data-parent="#accordionExample">
                                     <div class="card-body">
-                                        Nous offrons divers types de rendez-vous, tels que des consultations générales, des suivis post-opératoires et des examens de routine. Choisissez le rendez-vous qui correspond le mieux à vos besoins.
+                                        Nous offrons divers types de rendez-vous, tels que des consultations générales,
+                                        des suivis post-opératoires et des examens de routine. Choisissez le rendez-vous
+                                        qui correspond le mieux à vos besoins.
                                     </div>
                                 </div>
                             </div>
@@ -386,7 +412,9 @@
                                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
                                     data-parent="#accordionExample">
                                     <div class="card-body">
-                                        Oui, vous pouvez modifier ou annuler votre rendez-vous en ligne en accédant à votre compte. Toutes les modifications doivent être effectuées au moins 24 heures avant l’heure prévue de votre rendez-vous.
+                                        Oui, vous pouvez modifier ou annuler votre rendez-vous en ligne en accédant à
+                                        votre compte. Toutes les modifications doivent être effectuées au moins 24
+                                        heures avant l’heure prévue de votre rendez-vous.
                                     </div>
                                 </div>
                             </div>
@@ -404,7 +432,9 @@
                                 <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
                                     data-parent="#accordionExample">
                                     <div class="card-body">
-                                        Si vous ne trouvez pas de créneau qui vous convient, veuillez contacter notre bureau directement pour assistance supplémentaire. Nous serons heureux de vous aider à trouver une solution adaptée.
+                                        Si vous ne trouvez pas de créneau qui vous convient, veuillez contacter notre
+                                        bureau directement pour assistance supplémentaire. Nous serons heureux de vous
+                                        aider à trouver une solution adaptée.
                                     </div>
                                 </div>
                             </div>
@@ -422,8 +452,9 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Adresse email</label>
-                                    <input type="email" placeholder="Votre adresse email" onfocus="this.placeholder = ''"
-                                        onblur="this.placeholder = 'Your Email'" required>
+                                    <input type="email" placeholder="Votre adresse email"
+                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email'"
+                                        required>
                                 </div>
                                 <div class="form-group">
                                     <label>Message</label>
@@ -455,7 +486,9 @@
                         </div>
                         <div class="testi_item_content">
                             <p>
-                                “ Le cabinet a su répondre à mes besoins avec professionnalisme et empathie. L’équipe est à l’écoute et prend le temps d’expliquer chaque étape. Merci pour le suivi personnalisé et les conseils avisés ! ”
+                                “ Le cabinet a su répondre à mes besoins avec professionnalisme et empathie. L’équipe
+                                est à l’écoute et prend le temps d’expliquer chaque étape. Merci pour le suivi
+                                personnalisé et les conseils avisés ! ”
                             </p>
                             <h4>- Mr Badroudine Said -</h4>
                         </div>
@@ -468,7 +501,9 @@
                         </div>
                         <div class="testi_item_content">
                             <p>
-                                “ Les soins prodigués ici sont d’une qualité exceptionnelle. L’accompagnement est personnalisé et les professionnels prennent le temps d’écouter et de répondre à toutes les questions. Je me sens en confiance et bien pris en charge. ”
+                                “ Les soins prodigués ici sont d’une qualité exceptionnelle. L’accompagnement est
+                                personnalisé et les professionnels prennent le temps d’écouter et de répondre à toutes
+                                les questions. Je me sens en confiance et bien pris en charge. ”
                             </p>
                             <h4>- Mme Arnika Mohamed -</h4>
                         </div>
@@ -481,7 +516,9 @@
                         </div>
                         <div class="testi_item_content">
                             <p>
-                                “Le cabinet offre un service de qualité avec des soins attentifs et personnalisés. J’apprécie beaucoup la disponibilité des médecins et leur capacité à rendre les consultations agréables et informatives.”
+                                “Le cabinet offre un service de qualité avec des soins attentifs et personnalisés.
+                                J’apprécie beaucoup la disponibilité des médecins et leur capacité à rendre les
+                                consultations agréables et informatives.”
                             </p>
                             <h4>- Mme Bouchra Bouzidi -</h4>
                         </div>
@@ -534,51 +571,46 @@
                     </ul>
                 </div>
                 <div class="col-lg-2 col-sm-6 single-footer-widget">
-                    <h4>Lien rapide</h4>
+                    <h4>Informations importantes</h4>
                     <ul>
-                        <li><a href="https://www.cdc.gov/heartdisease/"> Prévention des maladies cardiaques et accidents vasculaires cérébraux (CDC)</a></li>
-                       
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-sm-6 single-footer-widget">
-                    <h4>Features</h4>
-                    <ul>
-                        <li><a href="https://www.heart.org/fr/gettinghealthy/nutrition">Nutrition et santé cardiaque</a></li>
-                        <li><a href="https://www.heart.org/fr/health-topics/arrhythmia">Ressources pour les arythmies</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-sm-6 single-footer-widget">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="https://www.heart.org/fr/health-topics/high-blood-pressure">Hypertension artérielle</a></li>
-                        <li><a href="https://www.cardiosmart.org/Heart-Health/Manage-Your-Risk">Gérer votre risque</a></li>
-                    </ul>
-                </div>
-                
-              <div class="col-lg-4 col-md-6 single-footer-widget">
-                    <h4>Newsletter</h4>
-                    <p>You can trust us. we only send promo offers,</p>
-                    <p>You can trust us. we only send promo offers,</p>
-                    <p>You can trust us. we only send promo offers,</p>
-                   {{--  <div class="form-wrap" id="mc_embed_signup">
-                        <form target="_blank"
-                            action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                            method="get" class="form-inline">
-                            <input class="form-control" name="EMAIL" placeholder="Your Email Address"
-                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address'"
-                                required="" type="email" />
-                            <button class="click-btn btn btn-default">
-                                <i class="ti-arrow-right"></i>
-                            </button>
-                            <div style="position: absolute; left: -5000px;">
-                                <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
-                                    type="text" />
-                            </div>
+                        <li><a href="https://www.cdc.gov/heartdisease/"> Prévention des maladies cardiaques et
+                                accidents vasculaires cérébraux (CDC)</a></li>
 
-                            <div class="info"></div>
-                        </form>
-                    </div> --}}
-                </div> 
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-sm-6 single-footer-widget">
+                    <h4>Ressources santé</h4>
+                    <ul>
+                        <li><a href="https://www.heart.org/fr/gettinghealthy/nutrition">Nutrition et santé
+                                cardiaque</a></li>
+                        <li><a href="https://www.heart.org/fr/health-topics/arrhythmia">Ressources pour les
+                                arythmies</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-sm-6 single-footer-widget">
+                    <h4>Prévention</h4>
+                    <ul>
+                        <li><a href="https://www.heart.org/fr/health-topics/high-blood-pressure">Hypertension
+                                artérielle</a></li>
+                        <li><a href="https://www.cardiosmart.org/Heart-Health/Manage-Your-Risk">Gérer votre risque</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-6 single-footer-widget">
+                    <h4>contacts</h4>
+                    <p> <i class="bi bi-envelope me-3"></i>
+                        <a class="dn_btn" href="mailto:medical@example.com">medical@example.com</a>
+                    </p>
+                    <p><i class="bi bi-telephone me-3"></i>
+                        <a class="dn_btn" href="tel:+1234567890">(+212) 644-239452</a>
+                    </p>
+                    <p> <i class="bi bi-geo-alt me-3"></i>
+                        <a class="dn_btn" href="https://maps.google.com?q=123+Medical+Street+City" target="_blank">
+                            55, rue Mly Abdellah
+                        </a>
+                    </p>
+                </div>
             </div>
             <div class="row footer-bottom d-flex justify-content-between">
                 <p class="col-lg-8 col-sm-12 footer-text m-0">
@@ -591,10 +623,10 @@
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
                 <div class="col-lg-4 col-sm-12 footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-dribbble"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-dribbble"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
                 </div>
             </div>
         </div>
