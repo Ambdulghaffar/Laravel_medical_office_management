@@ -60,9 +60,10 @@
         <div class="top_menu row m0">
             <div class="container">
                 <div class="float-left">
-                    <a class="dn_btn" href="mailto:medical@example.com"><i
-                            class="bi bi-envelope"></i>medical@example.com</a>
-                    <span class="dn_btn"> <i class="bi bi-geo-alt"></i>Find our Location</span>
+                    <a class="dn_btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=medical@example.com" target="_blank">
+                        <i class="bi bi-envelope"></i> medical@example.com
+                    </a>                    
+                    <a href="https://maps.google.com?q=123+Medical+Street+City" class="dn_btn" > <i class="bi bi-geo-alt"></i>Trouver notre emplacement</a>
                 </div>
                 <div class="float-right">
                     <ul class="list header_social">
@@ -79,7 +80,7 @@
             <nav class="navbar navbar-expand-lg navbar-light ">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="index.html"><img
+                    <a class="navbar-brand logo_h" href="{{ route('/') }}"><img
                             src="{{ asset('medcare-master/img/logo.png') }}" alt=""></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

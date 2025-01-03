@@ -11,7 +11,8 @@
                 <div class="banner_content d-md-flex justify-content-between align-items-center">
                     <div class="mb-3 mb-md-0">
                         <h2>Contact</h2>
-                        <p>Belding years moveth earth green behold wherein</p>
+                        <p>N'hésitez pas à nous contacter par téléphone, par email, via le formulaire, ou à vous rendre
+                            directement <br> sur place en suivant l'emplacement indiqué sur la carte.</p>
                     </div>
                     <div class="page_link">
                         <a href="{{ route('/') }}">Acceuil</a>
@@ -74,8 +75,8 @@
                     <h2 class="contact-title">Get in Touch</h2>
                 </div>
                 <div class="col-lg-8">
-                    <form class="form-contact contact_form" action="contact_process.php" method="post"
-                        id="contactForm" novalidate="novalidate">
+                    <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm"
+                        novalidate="novalidate">
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
@@ -121,7 +122,7 @@
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-tablet"></i></span>
                         <div class="media-body">
-                            <h3><a href="tel:454545654">00 (440) 9865 562</a></h3>
+                            <h3><a href="tel:454545654">(+212) 644-239452</a></h3>
                             <p>Mon to Fri 9am to 6pm</p>
                         </div>
                     </div>
@@ -190,66 +191,62 @@
     <!--================ End Brands Area =================-->
 
     <!-- start footer Area -->
+    <!-- start footer Area -->
     <footer class="footer-area area-padding-top">
         <div class="container">
             <div class="row">
                 <div class="col-lg-2 col-sm-6 single-footer-widget">
-                    <h4>Top Products</h4>
+                    <h4>Liens rapides</h4>
                     <ul>
-                        <li><a href="#">Managed Website</a></li>
-                        <li><a href="#">Manage Reputation</a></li>
-                        <li><a href="#">Power Tools</a></li>
-                        <li><a href="#">Marketing Service</a></li>
+                        <li><a href="#">Acceuil</a></li>
+                        <li><a href="#">Inscription</a></li>
+                        <li><a href="#">Authentification</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-sm-6 single-footer-widget">
-                    <h4>Quick Links</h4>
+                    <h4>Informations importantes</h4>
                     <ul>
-                        <li><a href="#">Jobs</a></li>
-                        <li><a href="#">Brand Assets</a></li>
-                        <li><a href="#">Investor Relations</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-sm-6 single-footer-widget">
-                    <h4>Features</h4>
-                    <ul>
-                        <li><a href="#">Jobs</a></li>
-                        <li><a href="#">Brand Assets</a></li>
-                        <li><a href="#">Investor Relations</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-sm-6 single-footer-widget">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">Guides</a></li>
-                        <li><a href="#">Research</a></li>
-                        <li><a href="#">Experts</a></li>
-                        <li><a href="#">Agencies</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 col-md-6 single-footer-widget">
-                    <h4>Newsletter</h4>
-                    <p>You can trust us. we only send promo offers,</p>
-                    <div class="form-wrap" id="mc_embed_signup">
-                        <form target="_blank"
-                            action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                            method="get" class="form-inline">
-                            <input class="form-control" name="EMAIL" placeholder="Your Email Address"
-                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address'"
-                                required="" type="email" />
-                            <button class="click-btn btn btn-default">
-                                <i class="ti-arrow-right"></i>
-                            </button>
-                            <div style="position: absolute; left: -5000px;">
-                                <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
-                                    type="text" />
-                            </div>
+                        <li><a href="https://www.cdc.gov/heartdisease/"> Prévention des maladies cardiaques et
+                                accidents vasculaires cérébraux (CDC)</a></li>
 
-                            <div class="info"></div>
-                        </form>
-                    </div>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-sm-6 single-footer-widget">
+                    <h4>Ressources santé</h4>
+                    <ul>
+                        <li><a href="https://www.heart.org/fr/gettinghealthy/nutrition">Nutrition et santé
+                                cardiaque</a></li>
+                        <li><a href="https://www.heart.org/fr/health-topics/arrhythmia">Ressources pour les
+                                arythmies</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-sm-6 single-footer-widget">
+                    <h4>Prévention</h4>
+                    <ul>
+                        <li><a href="https://www.heart.org/fr/health-topics/high-blood-pressure">Hypertension
+                                artérielle</a></li>
+                        <li><a href="https://www.cardiosmart.org/Heart-Health/Manage-Your-Risk">Gérer votre risque</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-6 single-footer-widget">
+                    <h4>Contactez-nous</h4>
+                    <p> <i class="bi bi-envelope me-3"></i>
+                        <a class="dn_btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=medical@example.com"
+                            target="_blank">
+                            <i class="bi bi-envelope"></i> medical@example.com
+                        </a>
+                    </p>
+                    <p><i class="bi bi-telephone me-3"></i>
+                        <a class="dn_btn" href="tel:+1234567890">(+212) 644-239452</a>
+                    </p>
+                    <p> <i class="bi bi-geo-alt me-3"></i>
+                        <a class="dn_btn" href="https://maps.google.com?q=123+Medical+Street+City" target="_blank">
+                            55, rue Mly Abdellah
+                        </a>
+                    </p>
                 </div>
             </div>
             <div class="row footer-bottom d-flex justify-content-between">
@@ -258,19 +255,20 @@
                     Copyright &copy;
                     <script>
                         document.write(new Date().getFullYear());
-                    </script> All rights reserved | This template is made with <i class="fa fa-heart"
-                        aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    </script> All rights reserved | This website is made with <i class="fa fa-heart"
+                        aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Elhaffar</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
                 <div class="col-lg-4 col-sm-12 footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-dribbble"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-dribbble"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- End footer Area -->
     <!-- End footer Area -->
 
 
@@ -306,6 +304,4 @@
         </div>
     </div>
     <!--================End Contact Success and Error message Area =================-->
-
-
 @endsection
