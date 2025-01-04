@@ -501,7 +501,7 @@
                     <h4>Contactez-nous</h4>
                     <p> <i class="bi bi-envelope me-3"></i>
                         <a class="dn_btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=medical@example.com" target="_blank">
-                            <i class="bi bi-envelope"></i> medical@example.com
+                           medical@example.com
                         </a>                        
                     </p>
                     <p><i class="bi bi-telephone me-3"></i>
