@@ -94,7 +94,7 @@
                         <ul class="nav navbar-nav menu_nav ml-auto">
                             <li class="nav-item"><a class="nav-link" href="{{ route('/') }}"></i>Acceuil</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Inscription</a></li>
-                            <li class="nav-item"><a class="nav-link" href="department.html">Se connecter</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Se connecter</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
                         </ul>
                     </div>
