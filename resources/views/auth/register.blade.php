@@ -31,21 +31,37 @@
                     <form class="form-contact contact_form" action="{{ route('register') }}" method="POST" id="registerForm">
                         @csrf
                         <div class="row">
+                            <!-- Champ Nom -->
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control" name="name" id="name" type="text" placeholder="Nom complet" required>
+                                    <input class="form-control" name="nom" id="nom" type="text" placeholder="Nom" required>
                                 </div>
                             </div>
+                            <!-- Champ Prénom -->
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" name="prenom" id="prenom" type="text" placeholder="Prénom" required>
+                                </div>
+                            </div>
+                            <!-- Champ Téléphone -->
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" name="telephone" id="telephone" type="tel" placeholder="Téléphone" required>
+                                </div>
+                            </div>
+                            <!-- Champ Email -->
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input class="form-control" name="email" id="email" type="email" placeholder="Adresse e-mail" required>
                                 </div>
                             </div>
+                            <!-- Champ Mot de passe -->
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input class="form-control" name="password" id="password" type="password" placeholder="Mot de passe" required>
                                 </div>
                             </div>
+                            <!-- Champ Confirmation du mot de passe -->
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input class="form-control" name="password_confirmation" id="password_confirmation" type="password" placeholder="Confirmez le mot de passe" required>

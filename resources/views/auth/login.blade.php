@@ -31,11 +31,24 @@
                     <form class="form-contact contact_form" action="{{ route('login') }}" method="POST" id="loginForm">
                         @csrf
                         <div class="row">
+                            <!-- Champ Combobox pour le type d'utilisateur -->
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <select class="form-control" name="role" id="role" required>
+                                        <option value="" disabled selected>Sélectionnez votre rôle</option>
+                                        <option value="patient">Patient</option>
+                                        <option value="secretaire">Secrétaire</option>
+                                        <option value="docteur">Docteur</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Champ Email -->
                             <div class="col-12">
                                 <div class="form-group">
                                     <input class="form-control" name="email" id="email" type="email" placeholder="Adresse e-mail" required>
                                 </div>
                             </div>
+                            <!-- Champ Mot de passe -->
                             <div class="col-12">
                                 <div class="form-group">
                                     <input class="form-control" name="password" id="password" type="password" placeholder="Mot de passe" required>
