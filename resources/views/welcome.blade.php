@@ -153,25 +153,24 @@
         <div class="container">
             <div class="area-heading row">
                 <div class="col-md-5 col-xl-4">
-                    <h3>Docteurs de confiance à votre service</h3>
+                    <h3>Notre Médecin Spécialiste</h3>
                 </div>
                 <div class="col-md-7 col-xl-8">
-                    <p>Nos docteurs, experts en soins, vous accompagnent avec un suivi personnalisé et des soins de
-                        qualité. Prenez facilement vos rendez-vous en ligne pour un accès rapide et simple à nos
-                        services.</p>
+                    <p>Notre médecin, expert en soins, vous accompagne avec un suivi personnalisé et des soins de qualité.
+                        Prenez facilement vos rendez-vous en ligne pour un accès rapide et simple à nos services.</p>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row justify-content-center"> <!-- Centrer la carte du médecin -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card card-team">
                         <img class="card-img rounded-0" src="{{ asset('medcare-master/img/team/1.jpg') }}"
-                            alt="">
+                            alt="Dr Adam Hibaoui">
                         <div class="card-team__body text-center">
                             <h3><a href="#">Dr Adam Hibaoui</a></h3>
                             <p>Cardiologue</p>
                             <div class="team-footer d-flex justify-content-between">
-                                <a class="dn_btn" href=""><i class="bi bi-phone"></i>(+212) 619-370908</a>
+                                <a class="dn_btn" href="tel:+212619370908"><i class="bi bi-phone"></i>(+212) 619-370908</a>
                                 <ul class="card-team__social">
                                     <li><a href="#"><i class="bi bi-facebook"></i></a></li>
                                     <li><a href="#"><i class="bi bi-twitter-x"></i></a></li>
@@ -179,46 +178,8 @@
                                     <li><a href="#"><i class="bi bi-skype"></i></a></li>
                                 </ul>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card card-team">
-                        <img class="card-img rounded-0" src="{{ asset('medcare-master/img/team/2.jpg') }}"
-                            alt="">
-                        <div class="card-team__body text-center">
-                            <h3><a href="#">Dr Adnoun walid</a></h3>
-                            <p>Cardiologue</p>
-                            <div class="team-footer d-flex justify-content-between">
-                                <a class="dn_btn" href=""><i class="bi bi-phone"></i>(+212) 656-098765</a>
-                                <ul class="card-team__social">
-                                    <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                                    <li><a href="#"><i class="bi bi-twitter-x"></i></a></li>
-                                    <li><a href="#"><i class="bi bi-instagram"></i></a></li>
-                                    <li><a href="#"><i class="bi bi-skype"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card card-team">
-                        <img class="card-img rounded-0" src="{{ asset('medcare-master/img/team/3.jpg') }}"
-                            alt="">
-                        <div class="card-team__body text-center">
-                            <h3><a href="#">Dr Madjid Anli</a></h3>
-                            <p>Cardiologue</p>
-                            <div class="team-footer d-flex justify-content-between">
-                                <a class="dn_btn" href=""><i class="bi bi-phone"></i>(+212) 612-467891</a>
-                                <ul class="card-team__social">
-                                    <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                                    <li><a href="#"><i class="bi bi-twitter-x"></i></a></li>
-                                    <li><a href="#"><i class="bi bi-instagram"></i></a></li>
-                                    <li><a href="#"><i class="bi bi-skype"></i></a></li>
-                                </ul>
-                            </div>
+                            <!-- Bouton de rendez-vous -->
+                            <a href="#" class="main_btn">Prendre rendez-vous</a>
                         </div>
                     </div>
                 </div>
@@ -241,8 +202,7 @@
                                 <div class="card-header" id="headingOne">
                                     <h5 class="mb-0">
                                         <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#collapseOne" aria-expanded="true"
-                                            aria-controls="collapseOne">
+                                            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                             Dois-je créer un compte pour prendre un rendez-vous en <br>ligne ?
                                         </button>
 
@@ -263,8 +223,7 @@
                                 <div class="card-header" id="headingTwo">
                                     <h5 class="mb-0">
                                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                            data-target="#collapseTwo" aria-expanded="false"
-                                            aria-controls="collapseTwo">
+                                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                             Comment puis-je prendre un rendez-vous en ligne ?
                                         </button>
                                     </h5>
@@ -353,8 +312,7 @@
                                 <div class="form-group">
                                     <label>Adresse email</label>
                                     <input type="email" placeholder="Votre adresse email"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email'"
-                                        required>
+                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email'" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Message</label>
@@ -500,9 +458,10 @@
                 <div class="col-lg-4 col-md-6 single-footer-widget">
                     <h4>Contactez-nous</h4>
                     <p> <i class="bi bi-envelope me-3"></i>
-                        <a class="dn_btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=medical@example.com" target="_blank">
-                           medical@example.com
-                        </a>                        
+                        <a class="dn_btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=medical@example.com"
+                            target="_blank">
+                            medical@example.com
+                        </a>
                     </p>
                     <p><i class="bi bi-telephone me-3"></i>
                         <a class="dn_btn" href="tel:+1234567890">(+212) 644-239452</a>
@@ -534,11 +493,4 @@
         </div>
     </footer>
     <!-- End footer Area -->
-
-
-
-
-
-
-
 @endsection
