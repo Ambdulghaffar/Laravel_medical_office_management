@@ -52,8 +52,10 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'lastname'=>['required','string','max:255'],
             'phone'=>['required','string','max:255','unique:users'],
+            'address'=>['required','string','max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'role' => ['nullable', 'string', 'in:patient,secretary,doctor'], 
+            'status' => ['nullable', 'string', 'in:pending,consulted,canceled','completed'], 
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'confirm_password' => ['required', 'string', 'same:password'],
         ]);
@@ -72,6 +74,8 @@ class RegisterController extends Controller
             'lastname' => $data['lastname'],
             'phone' => $data['phone'],
             'email' => $data['email'],
+            'address' => $data['address'],
+            'status' => $data['status'] ?? 'pending',
             'role' => $data['role'] ?? 'patient', // Valeur par défaut si non fournie
             'password' => Hash::make($data['password']),
         ]);

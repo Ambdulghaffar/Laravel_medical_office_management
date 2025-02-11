@@ -17,9 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('lastname');
+            $table->string('address');
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->string('role')->default('patient')->nullable();
+            $table->string('status')->default('pending')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

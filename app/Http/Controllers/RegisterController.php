@@ -19,6 +19,7 @@ class RegisterController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
             'phone' => 'required|string|max:255|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
@@ -30,6 +31,7 @@ class RegisterController extends Controller
                     'lastname' => $request->lastname,
                     'phone' => $request->phone,
                     'email' => $request->email,
+                    'address'=>$request->address,
                     'password' => Hash::make($request->password), // Hachage du mot de passe
                 ]);
 

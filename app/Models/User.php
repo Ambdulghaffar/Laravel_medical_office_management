@@ -22,7 +22,9 @@ class User extends Authenticatable
         'lastname',
         'email',
         'phone',
+        'address',
         'role',
+        'status',
         'password',
     ];
 
@@ -52,5 +54,6 @@ class User extends Authenticatable
      */
     protected $attributes = [
         'role' => 'patient', // Valeur par défaut
+        'status'=>'pending',
     ];
 }

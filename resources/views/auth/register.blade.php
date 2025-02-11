@@ -28,68 +28,93 @@
                     <h2 class="contact-title">Créez votre compte</h2>
                 </div>
                 <div class="col-lg-8">
-                    <form class="form-contact contact_form" action="{{ route('register.store') }}" method="POST" id="registerForm">
+                    <form class="form-contact contact_form" action="{{ route('register.store') }}" method="POST"
+                        id="registerForm">
                         @csrf
                         <div class="row">
                             <!-- Champ Nom -->
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control @error('name') is-invalid @enderror" name="name" id="name" type="text" placeholder="Nom" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input class="form-control @error('name') is-invalid @enderror" name="name"
+                                        id="name" type="text" placeholder="Nom" value="{{ old('name') }}" required
+                                        autocomplete="name" autofocus>
                                     @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <!-- Champ Prénom -->
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control @error('lastname') is-invalid @enderror" name="lastname" id="lastname" type="text" placeholder="Prénom" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+                                    <input class="form-control @error('lastname') is-invalid @enderror" name="lastname"
+                                        id="lastname" type="text" placeholder="Prénom" value="{{ old('lastname') }}"
+                                        required autocomplete="lastname" autofocus>
                                     @error('lastname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <!-- Champ Téléphone -->
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control @error('phone') is-invalid @enderror" name="phone" id="phone" type="tel" placeholder="Téléphone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                                    <input class="form-control @error('phone') is-invalid @enderror" name="phone"
+                                        id="phone" type="tel" placeholder="Téléphone" value="{{ old('phone') }}"
+                                        required autocomplete="phone" autofocus>
                                 </div>
                                 @error('phone')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                            </div>
-                            <!-- Champ Email -->
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input class="form-control @error('email') is-invalid @enderror" name="email" id="email" type="email" placeholder="Adresse e-mail" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+                            <!-- Champ Email -->
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control @error('email') is-invalid @enderror" name="email"
+                                        id="email" type="email" placeholder="Adresse e-mail"
+                                        value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <!-- Champ Email -->
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <input class="form-control @error('address') is-invalid @enderror" name="address"
+                                        id="address" type="text" placeholder="Adresse (ex: ville , quartier , . . . )"
+                                        value="{{ old('address') }}" required autocomplete="address" autofocus>
+                                    @error('address')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <!-- Champ Mot de passe -->
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control @error('password') is-invalid @enderror" name="password" id="password" type="password" placeholder="Mot de passe" required autocomplete="new-password">
+                                    <input class="form-control @error('password') is-invalid @enderror" name="password"
+                                        id="password" type="password" placeholder="Mot de passe" required
+                                        autocomplete="new-password">
                                     @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <!-- Champ Confirmation du mot de passe -->
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control" name="password_confirmation" id="password_confirmation" type="password" placeholder="Confirmez le mot de passe" required>
+                                    <input class="form-control" name="password_confirmation" id="password_confirmation"
+                                        type="password" placeholder="Confirmez le mot de passe" required>
                                 </div>
                             </div>
                         </div>
