@@ -20,7 +20,7 @@ class LoginController extends Controller
         ]);
 
         if(Auth::attempt(['role'=>$user['role'],'email' => $user['email'], 'password' => $user['password']])){
-            return redirect()->route('home');
+            return redirect()->route('dashboard');
         } 
                     // Échec de connexion
         return back()->withErrors(['email' => 'Informations incorrect.'])->withInput();

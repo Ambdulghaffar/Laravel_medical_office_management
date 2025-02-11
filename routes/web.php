@@ -30,3 +30,5 @@ Route::post('/register', [App\Http\Controllers\RegisterController::class, 'store
 
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
 Route::post('/login', [App\Http\Controllers\LoginController::class, 'store'])->name('login.store');
+
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
