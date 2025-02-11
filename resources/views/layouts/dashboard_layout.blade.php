@@ -10,6 +10,7 @@
 
     <!-- Favicon -->
     <link href="{{ asset('dashmin/dashmin/img/favicon.ico') }}" rel="icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,9 +92,9 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="{{ route('dashboard') }}" class="nav-item nav-link active"><i
+                    <a href="{{ route('dashboard') }}" class="nav-item nav-link {{ Request::routeIs('dashboard') ? 'active' : '' }}"><i
                             class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="{{ route('user') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Utilisateurs</a>
+                    <a href="{{ route('user') }}" class="nav-item nav-link {{ Request::routeIs('user') ? 'active' : '' }}"><i class="fa fa-th me-2"></i>Utilisateurs</a>
                     <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
                     <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
                     <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
