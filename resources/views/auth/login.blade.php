@@ -34,12 +34,17 @@
                             <!-- Champ Combobox pour le type d'utilisateur -->
                             <div class="col-12">
                                 <div class="form-group">
-                                    <select class="form-control" name="role" id="role" required>
+                                    <select class="form-control @error('role') is-invalid @enderror" name="role" id="role" required>
                                         <option value="" disabled selected>Sélectionnez votre rôle</option>
                                         <option value="patient">Patient</option>
-                                        <option value="secretaire">Secrétaire</option>
-                                        <option value="docteur">Docteur</option>
+                                        <option value="secretary">Secrétaire</option>
+                                        <option value="doctor">Docteur</option>
                                     </select>
+                                    @error('role')
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <!-- Champ Email -->

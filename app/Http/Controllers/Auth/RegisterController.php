@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'lastname'=>['required','string','max:255'],
             'phone'=>['required','string','max:255','unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'role' => ['nullable', 'string', 'in:patient,secretaire,docter'], 
+            'role' => ['nullable', 'string', 'in:patient,secretary,doctor'], 
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'confirm_password' => ['required', 'string', 'same:password'],
         ]);
