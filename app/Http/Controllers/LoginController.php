@@ -19,9 +19,12 @@ class LoginController extends Controller
             'password' => 'required|string|min:8',
         ]);
 
-        if(Auth::attempt($user)){
+        if(Auth::attempt(['role'=>$user['role'],'email' => $user['email'], 'password' => $user['password']])){
             return redirect()->route('home');
-        }
+        } 
+                    // Échec de connexion
+        return back()->withErrors(['email' => 'Informations incorrect.'])->withInput();
+        
 
     }
 }

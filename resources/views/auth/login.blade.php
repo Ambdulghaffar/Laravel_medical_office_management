@@ -28,45 +28,57 @@
                     <h2 class="contact-title">Connectez-vous</h2>
                 </div>
                 <div class="col-lg-8">
-                    <form class="form-contact contact_form" action="{{ route('login') }}" method="POST" id="loginForm">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            @foreach ($errors->all() as $error)
+                                <p>{{ $error }}</p>
+                            @endforeach
+                        </div>
+                    @endif
+                    <form class="form-contact contact_form" action="{{ route('login.store') }}" method="POST"
+                        id="loginForm">
                         @csrf
                         <div class="row">
                             <!-- Champ Combobox pour le type d'utilisateur -->
                             <div class="col-12">
                                 <div class="form-group">
-                                    <select class="form-control @error('role') is-invalid @enderror" name="role" id="role" required>
+                                    <select class="form-control @error('role') is-invalid @enderror" name="role"
+                                        id="role" required>
                                         <option value="" disabled selected>Sélectionnez votre rôle</option>
                                         <option value="patient">Patient</option>
                                         <option value="secretary">Secrétaire</option>
                                         <option value="doctor">Docteur</option>
                                     </select>
                                     @error('role')
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                     @enderror
                                 </div>
                             </div>
                             <!-- Champ Email -->
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input class="form-control @error('email') is-invalid @enderror" name="email" id="email" type="email" placeholder="Adresse e-mail" required autocomplete="email" autofocus>
+                                    <input class="form-control @error('email') is-invalid @enderror" name="email"
+                                        id="email" type="email" placeholder="Adresse e-mail" required
+                                        autocomplete="email" autofocus>
                                     @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <!-- Champ Mot de passe -->
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input class="form-control" name="password" id="password" type="password" placeholder="Mot de passe" required autocomplete="current-password" autofocus>
+                                    <input class="form-control" name="password" id="password" type="password"
+                                        placeholder="Mot de passe" required autocomplete="current-password" autofocus>
                                     @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
