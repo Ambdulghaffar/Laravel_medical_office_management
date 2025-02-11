@@ -26,6 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
 
 Route::get('/register', [App\Http\Controllers\RegisterController::class, 'index'])->name('register');
-Route::post('/register/store', [App\Http\Controllers\RegisterController::class, 'store'])->name('register.store');
+Route::post('/register', [App\Http\Controllers\RegisterController::class, 'store'])->name('register.store');
 
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
+Route::post('/login', [App\Http\Controllers\LoginController::class, 'store'])->name('login.store');

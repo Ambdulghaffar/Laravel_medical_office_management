@@ -22,7 +22,7 @@ class User extends Authenticatable
         'lastname',
         'email',
         'phone',
-        'status',
+        'role',
         'password',
     ];
 
@@ -51,6 +51,6 @@ class User extends Authenticatable
      * @var array<string, mixed>
      */
     protected $attributes = [
-        'status' => 'patient', // Valeur par défaut
+        'role' => 'patient', // Valeur par défaut
     ];
 }

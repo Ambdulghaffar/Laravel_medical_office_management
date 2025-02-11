@@ -45,7 +45,7 @@
                             <!-- Champ Prénom -->
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control @error('lastname') is-invalid @enderror" name="lastname" id="lastname" type="text" placeholder="Prénom" required autocomplete="lastname" autofocus>
+                                    <input class="form-control @error('lastname') is-invalid @enderror" name="lastname" id="lastname" type="text" placeholder="Prénom" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
                                     @error('lastname')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -56,7 +56,7 @@
                             <!-- Champ Téléphone -->
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control @error('phone') is-invalid @enderror" name="phone" id="phone" type="tel" placeholder="Téléphone" required autocomplete="phone" autofocus>
+                                    <input class="form-control @error('phone') is-invalid @enderror" name="phone" id="phone" type="tel" placeholder="Téléphone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
                                 </div>
                                 @error('phone')
                                 <span class="invalid-feedback" role="alert">
@@ -67,7 +67,7 @@
                             <!-- Champ Email -->
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control @error('email') is-invalid @enderror" name="email" id="email" type="email" placeholder="Adresse e-mail" required autocomplete="email" autofocus>
+                                    <input class="form-control @error('email') is-invalid @enderror" name="email" id="email" type="email" placeholder="Adresse e-mail" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

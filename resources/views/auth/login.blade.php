@@ -45,13 +45,23 @@
                             <!-- Champ Email -->
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input class="form-control" name="email" id="email" type="email" placeholder="Adresse e-mail" required>
+                                    <input class="form-control @error('email') is-invalid @enderror" name="email" id="email" type="email" placeholder="Adresse e-mail" required autocomplete="email" autofocus>
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                 </div>
                             </div>
                             <!-- Champ Mot de passe -->
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input class="form-control" name="password" id="password" type="password" placeholder="Mot de passe" required>
+                                    <input class="form-control" name="password" id="password" type="password" placeholder="Mot de passe" required autocomplete="current-password" autofocus>
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                 </div>
                             </div>
                         </div>
