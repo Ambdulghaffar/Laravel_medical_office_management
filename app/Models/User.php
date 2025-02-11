@@ -19,7 +19,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'lastname',
         'email',
+        'phone',
+        'status',
         'password',
     ];
 
@@ -40,5 +43,14 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+        /**
+     * Valeur par défaut pour le champ "status".
+     *
+     * @var array<string, mixed>
+     */
+    protected $attributes = [
+        'status' => 'patient', // Valeur par défaut
     ];
 }
