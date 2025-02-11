@@ -76,15 +76,16 @@
                         </div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">{{ Auth::user()->name }}</h6>
+                        <h6 class="mb-0">{{ Auth::user()->name }} {{ Auth::user()->lastname }}</h6>
                         <span>
-                            @if ( Auth::user()->role='doctor')
-                            Docteur
-                            @elseif (Auth::user()->role='patient')
-                            Patient
-                            @elseif (Auth::user()->role='secretary')
-                            Secrétaire
-                            @else {{ Auth::user()->role }}
+                            @if (Auth::user()->role == 'doctor')
+                                Docteur
+                            @elseif (Auth::user()->role == 'patient')
+                                Patient
+                            @elseif (Auth::user()->role == 'secretary')
+                                Secrétaire
+                            @else
+                                {{ Auth::user()->role }}
                             @endif
                         </span>
                     </div>
@@ -92,16 +93,7 @@
                 <div class="navbar-nav w-100">
                     <a href="{{ route('dashboard') }}" class="nav-item nav-link active"><i
                             class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                                class="fa fa-laptop me-2"></i>Elements</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="button.html" class="dropdown-item">Buttons</a>
-                            <a href="typography.html" class="dropdown-item">Typography</a>
-                            <a href="element.html" class="dropdown-item">Other Elements</a>
-                        </div>
-                    </div>
-                    <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
+                    <a href="{{ route('user') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Utilisateurs</a>
                     <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
                     <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
                     <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
@@ -205,12 +197,17 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
                                 style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">{{ Auth::user()->name }}</span>
+                            <span class="d-none d-lg-inline-flex">{{ Auth::user()->name }} {{ Auth::user()->lastname }}</span>
                         </a>
+
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="{{ route('logout') }}" class="dropdown-item">Log Out</a>
+                            <a href="#" class="dropdown-item">Mon Profile</a>
+                            <a href="#" class="dropdown-item">Paramètres</a>
+                            <a href="{{ route('logout') }}" class="dropdown-item"
+                                onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                Se déconnecter
+                            </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
@@ -219,13 +216,10 @@
                 </div>
             </nav>
             @yield('dashboard')
-            
+
             <!-- Navbar End -->
         </div>
 
-{{--         <div class="container-xxl position-relative bg-white d-flex p-0">
-            
-        </div> --}}
 </body>
 
 </html>
