@@ -28,37 +28,62 @@
                     <h2 class="contact-title">Créez votre compte</h2>
                 </div>
                 <div class="col-lg-8">
-                    <form class="form-contact contact_form" action="{{ route('register') }}" method="POST" id="registerForm">
+                    <form class="form-contact contact_form" action="{{ route('register.store') }}" method="POST" id="registerForm">
                         @csrf
                         <div class="row">
                             <!-- Champ Nom -->
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control" name="nom" id="nom" type="text" placeholder="Nom" required>
+                                    <input class="form-control @error('name') is-invalid @enderror" name="name" id="name" type="text" placeholder="Nom" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                 </div>
                             </div>
                             <!-- Champ Prénom -->
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control" name="prenom" id="prenom" type="text" placeholder="Prénom" required>
+                                    <input class="form-control @error('lastname') is-invalid @enderror" name="lastname" id="lastname" type="text" placeholder="Prénom" required autocomplete="lastname" autofocus>
+                                    @error('lastname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                 </div>
                             </div>
                             <!-- Champ Téléphone -->
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control" name="telephone" id="telephone" type="tel" placeholder="Téléphone" required>
+                                    <input class="form-control @error('phone') is-invalid @enderror" name="phone" id="phone" type="tel" placeholder="Téléphone" required autocomplete="phone" autofocus>
                                 </div>
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                             </div>
                             <!-- Champ Email -->
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control" name="email" id="email" type="email" placeholder="Adresse e-mail" required>
+                                    <input class="form-control @error('email') is-invalid @enderror" name="email" id="email" type="email" placeholder="Adresse e-mail" required autocomplete="email" autofocus>
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                 </div>
                             </div>
                             <!-- Champ Mot de passe -->
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control" name="password" id="password" type="password" placeholder="Mot de passe" required>
+                                    <input class="form-control @error('password') is-invalid @enderror" name="password" id="password" type="password" placeholder="Mot de passe" required autocomplete="new-password">
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                 </div>
                             </div>
                             <!-- Champ Confirmation du mot de passe -->

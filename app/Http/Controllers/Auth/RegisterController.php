@@ -75,5 +75,7 @@ class RegisterController extends Controller
             'status' => $data['status'] ?? 'Patient', // Valeur par défaut si non fournie
             'password' => Hash::make($data['password']),
         ]);
+                // Redirection vers /home
+                return redirect('/home');
     }
 }
