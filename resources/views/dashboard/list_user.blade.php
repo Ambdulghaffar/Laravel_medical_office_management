@@ -26,20 +26,47 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>John Doe</td>
-                            <td>jhon@email.com</td>
-                            <td>0678902567</td>
-                            <td>Mhannech</td>
-                            <td>Patient</td>
-                            <td>Annulé</td>
-                            <td class="">
-                                <a href="#" class="btn text-primary"><i class="bi bi-pen-fill"></i></a>
-                                <button type="button" class="btn text-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill"></i></button>
-                            </td>
-                        </tr>
-                        </tr>
+                        @foreach ($users as $user)
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>{{ $user->name }} {{ $user->lastname }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->phone }}</td>
+                                <td>{{ $user->address }}</td>
+                                <td>
+                                    @if ($user->role == 'patient')
+                                        Patient
+                                    @elseif ($user->role == 'doctor')
+                                        Docteur
+                                    @elseif ($user->role == 'secretary')
+                                        Secrétaire
+                                    @else
+                                        {{ $user->role }}
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($user->role == 'doctor' || $user->role == 'secretary')
+                                        Nul
+                                    @elseif ($user->status == 'pending')
+                                        En attente
+                                    @elseif ($user->status == 'consulted')
+                                        Consulté
+                                    @elseif ($user->status == 'canceled')
+                                        Annulé
+                                    @elseif ($user->status == 'completed')
+                                        Complété
+                                    @else
+                                        {{ $user->status }}
+                                    @endif
+                                </td>
+                                <td class="">
+                                    <a href="#" class="btn text-primary"><i class="bi bi-pen-fill"></i></a>
+                                    <button type="button" class="btn text-danger" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill"></i></button>
+                                </td>
+                            </tr>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
 
