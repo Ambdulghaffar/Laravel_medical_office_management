@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -24,7 +25,7 @@ class RegisterController extends Controller
         ]) ;
 
                 // Création de l'utilisateur
-                User::create([
+                $user=User::create([
                     'name' => $request->name,
                     'lastname' => $request->lastname,
                     'phone' => $request->phone,
@@ -32,8 +33,12 @@ class RegisterController extends Controller
                     'password' => Hash::make($request->password), // Hachage du mot de passe
                 ]);
 
-        //redirect()->route('/home');
+        
+        // Connexion automatique après l'inscription
+        Auth::login($user);
 
+        // Redirection vers la page d'accueil ou le tableau de bord
+        return redirect()->route('home')->with('success', 'Inscription réussie, vous êtes maintenant connecté.');
 
 
     }
