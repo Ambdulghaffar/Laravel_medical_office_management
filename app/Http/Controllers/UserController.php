@@ -14,9 +14,19 @@ class UserController extends Controller
      */
     public function index()
     {
-       $users=User::all();
-        return view('dashboard.list_user',compact('users'));
+        $users = User::all();
+        return view('dashboard.list_user', compact('users'));
     }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $user->status = $request->status;
+        $user->save();
+
+        return redirect()->back()->with('success', 'Statut mis à jour avec succès !');
+    }
+
 
     /**
      * Show the form for creating a new resource.

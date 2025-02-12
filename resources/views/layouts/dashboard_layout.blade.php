@@ -7,6 +7,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 
     <!-- Favicon -->
     <link href="{{ asset('dashmin/dashmin/img/favicon.ico') }}" rel="icon">
@@ -33,8 +35,9 @@
     <link href="{{ asset('dashmin/dashmin/css/style.css') }}" rel="stylesheet">
 
     <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('dashmin/dashmin/lib/chart/chart.min.js') }}"></script>
     <script src="{{ asset('dashmin/dashmin/lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('dashmin/dashmin/lib/waypoints/waypoints.min.js') }}"></script>
