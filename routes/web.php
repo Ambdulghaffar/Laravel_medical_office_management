@@ -35,6 +35,7 @@ Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'inde
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
 Route::get('/user/create', [App\Http\Controllers\UserController::class, 'create'])->name('user.create');
 Route::post('/user/store', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
+Route::delete('/user/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');
 
 Route::put('/update-status/{id}', [App\Http\Controllers\UserController::class, 'updateStatus'])->name('updateStatus');
 

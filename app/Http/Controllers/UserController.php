@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -54,9 +53,10 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
             'address' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'phone' => 'required|string|phone|max:20|unique:users',
-            'role' => 'required|in:patient,doctor,secretary',
+            'email' => 'required|email|unique:users,email',
+            'phone' => 'required|string|regex:/^\+?[0-9]{10,15}$/|unique:users,phone',
+            'role' => 'required|in:patient,doctor,secretary', 
+            'password' => 'required|string|min:8|confirmed'
         ]);
 
 
@@ -69,7 +69,7 @@ class UserController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'role' => $request->role,
-            'password' => Hash::make('password'),
+            'password' => bcrypt($request->password),
         ]);
 
         return redirect()->route('user')->with('success', 'Utilisateur ajouté avec succès');
@@ -118,6 +118,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user=User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->back()->with('success', 'Utilisateur supprimé avec succès !');
+
     }
 }

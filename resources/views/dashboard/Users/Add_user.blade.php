@@ -20,15 +20,23 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="name" class="form-label">Nom</label>
-                                <input type="text" class="form-control" id="name" name="name">
+                                <input type="text" class="form-control" id="name" name="name" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="lastname" class="form-label">Prénom</label>
-                                <input type="text" class="form-control" id="lastname" name="lastname">
+                                <input type="text" class="form-control" id="lastname" name="lastname" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="address" class="form-label">Adresse</label>
+                                <input type="text" class="form-control" id="address" name="address" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email">
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="phone" class="form-label">Téléphone</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="role" class="form-label">Rôle</label>
@@ -39,17 +47,14 @@
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="phone" class="form-label">Téléphone</label>
-                                <input type="tel" class="form-control" id="phone" name="phone">
+                                <label for="password" class="form-label">Mode de passe</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="password" class="form-label">Mode de passe</label>
-                                <input type="password" class="form-control" id="password" name="password">
+                                <label for="password_confirmation" class="form-label">Confirmer mot de passe</label>
+                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
                             </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="address" class="form-label">Adresse</label>
-                                <input type="text" class="form-control" id="address" name="address">
-                            </div>
+                            
                         </div>
                         <div class="mt-3 d-flex justify-content-end">
                             <button type="submit" class="btn btn-primary me-3">Ajouter</button>
