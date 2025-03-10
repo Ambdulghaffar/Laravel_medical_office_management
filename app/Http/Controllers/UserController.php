@@ -15,7 +15,11 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('dashboard.list_user', compact('users'));
+        return view("dashboard.Users.list_user", compact('users'));
+    }
+
+    public function add_user(){
+        return view('dashboard.Users.Add_user');
     }
 
     public function updateStatus(Request $request, $id)

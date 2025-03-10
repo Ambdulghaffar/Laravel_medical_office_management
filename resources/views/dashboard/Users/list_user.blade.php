@@ -7,7 +7,7 @@
                     <h6 class="mb-4 fs-2">Liste des utilisateurs</h6>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-primary">Ajouter</button>
+                    <a href="{{ route('add_user') }}"><button type="button" class="btn btn-primary">Ajouter</button></a>
                     <button type="button" class="btn btn-secondary">Trier par</button>
                 </div>
             </div>
