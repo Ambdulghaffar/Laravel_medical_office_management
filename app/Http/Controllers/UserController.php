@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -18,9 +20,6 @@ class UserController extends Controller
         return view("dashboard.Users.list_user", compact('users'));
     }
 
-    public function add_user(){
-        return view('dashboard.Users.Add_user');
-    }
 
     public function updateStatus(Request $request, $id)
     {
@@ -40,6 +39,7 @@ class UserController extends Controller
     public function create()
     {
         //
+        return view('dashboard.Users.Add_user');
     }
 
     /**
@@ -50,8 +50,31 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'required|string|phone|max:20|unique:users',
+            'role' => 'required|in:patient,doctor,secretary',
+        ]);
+
+
+
+        // Création de l'utilisateur
+        User::create([
+            'name' => $request->name,
+            'lastname' => $request->lastname,
+            'address' => $request->address,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'role' => $request->role,
+            'password' => Hash::make('password'),
+        ]);
+
+        return redirect()->route('user')->with('success', 'Utilisateur ajouté avec succès');
     }
+
 
     /**
      * Display the specified resource.

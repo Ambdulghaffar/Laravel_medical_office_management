@@ -33,7 +33,8 @@ Route::post('/login', [App\Http\Controllers\LoginController::class, 'store'])->n
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
-Route::get('/add_user', [App\Http\Controllers\UserController::class, 'add_user'])->name('add_user');
+Route::get('/user/create', [App\Http\Controllers\UserController::class, 'create'])->name('user.create');
+Route::post('/user/store', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
 
 Route::put('/update-status/{id}', [App\Http\Controllers\UserController::class, 'updateStatus'])->name('updateStatus');
 

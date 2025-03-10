@@ -2,15 +2,27 @@
 @section('dashboard')
     <div class="col-12 ">
         <div class="bg-light rounded h-100 p-4">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-light p-0 rounded fs-5">
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="bi bi-house"></i> Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Utilisateurs</li>
+                </ol>
+            </nav>
             <div class="d-flex justify-content-between mt-5">
                 <div>
                     <h6 class="mb-4 fs-2">Liste des utilisateurs</h6>
                 </div>
                 <div>
-                    <a href="{{ route('add_user') }}"><button type="button" class="btn btn-primary">Ajouter</button></a>
+                    <a href="{{ route('user.create') }}"><button type="button" class="btn btn-primary">Ajouter</button></a>
                     <button type="button" class="btn btn-secondary">Trier par</button>
                 </div>
             </div>
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -45,27 +57,13 @@
                                         {{ $user->role }}
                                     @endif
                                 </td>
-                                {{--                                 <td>
-                                    @if ($user->role == 'doctor' || $user->role == 'secretary')
-                                        <span class="fw-bold">Nul</span>
-                                    @elseif ($user->status == 'pending')
-                                        <span class="text-success fw-bold">En attente</span>
-                                    @elseif ($user->status == 'consulted')
-                                        <span class="text-info fw-bold">Consulté</span>
-                                    @elseif ($user->status == 'canceled')
-                                        <span class="text-danger fw-bold">Annulé</span>
-                                    @elseif ($user->status == 'completed')
-                                        <span class="text-success fw-bold">Complété</span>
-                                    @else
-                                        {{ $user->status }}
-                                    @endif
-                                </td> --}}
+
                                 <td>
                                     @if ($user->role == 'doctor' || $user->role == 'secretary')
                                         <span class="fw-bold ms-4">Nul</span>
                                     @else
-                                        <button type="button" class="btn btn-link fw-bold"
-                                            data-bs-toggle="modal" data-bs-target="#statusModal{{ $user->id }}">
+                                        <button type="button" class="btn btn-link fw-bold" data-bs-toggle="modal"
+                                            data-bs-target="#statusModal{{ $user->id }}">
                                             @if ($user->status == 'pending')
                                                 <span class="text-success fw-bold">En attente</span>
                                             @elseif ($user->status == 'consulted')
