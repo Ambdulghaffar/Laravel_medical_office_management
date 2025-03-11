@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::where('id','!=', auth()->id())->get();
         return view("dashboard.Users.list_user", compact('users'));
     }
 
