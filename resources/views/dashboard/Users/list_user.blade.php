@@ -125,7 +125,7 @@
                                 </td>
 
                                 <td class="">
-                                    <a href="#" class="btn text-primary"><i class="bi bi-pen-fill"></i></a>
+                                    <a href="{{ route('user.edit',$user->id) }}" class="btn text-primary"><i class="bi bi-pen-fill"></i></a>
                                     <button type="button" class="btn text-danger" data-bs-toggle="modal"
                                         data-bs-target="#staticBackdrop{{ $user->id }}"><i class="bi bi-trash3-fill"></i></button>
                                 </td>

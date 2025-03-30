@@ -34,7 +34,9 @@ Route::post('/login', [App\Http\Controllers\LoginController::class, 'store'])->n
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
 Route::get('/user/create', [App\Http\Controllers\UserController::class, 'create'])->name('user.create');
+Route::get('/user/{id}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
 Route::post('/user/store', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
+Route::put('/user/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
 Route::delete('/user/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');
 
 Route::put('/update-status/{id}', [App\Http\Controllers\UserController::class, 'updateStatus'])->name('updateStatus');

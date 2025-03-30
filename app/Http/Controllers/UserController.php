@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-
+use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::where('id','!=', auth()->id())->get();
+        $users = User::where('id', '!=', auth()->id())->get();
         return view("dashboard.Users.list_user", compact('users'));
     }
 
@@ -55,7 +55,7 @@ class UserController extends Controller
             'address' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'phone' => 'required|string|regex:/^\+?[0-9]{10,15}$/|unique:users,phone',
-            'role' => 'required|in:patient,doctor,secretary', 
+            'role' => 'required|in:patient,doctor,secretary',
             'password' => 'required|string|min:8|confirmed'
         ]);
 
@@ -95,7 +95,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view("dashboard.Users.Update_user", compact('user'));
     }
 
     /**
@@ -107,8 +108,25 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        // Validation des données
+        $request->validate([
+            'name' => 'string|max:255',
+            'lastname' => 'string|max:255',
+            'address' => 'string|max:255',
+            'email' => 'email|unique:users,email,' . $id,
+            'phone' => 'string|regex:/^\+?[0-9]{10,15}$/|unique:users,phone,' . $id,
+            'role' => 'in:patient,doctor,secretary',
+        ]);
+
+        // Mise à jour des informations de l'utilisateur
+        $user->fill($request->all())->save();
+
+        // Redirection avec un message de succès
+        return redirect()->route('user')->with('success', 'Utilisateur mis à jour avec succès.');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -118,10 +136,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user=User::findOrFail($id);
+        $user = User::findOrFail($id);
         $user->delete();
 
         return redirect()->back()->with('success', 'Utilisateur supprimé avec succès !');
-
     }
 }
