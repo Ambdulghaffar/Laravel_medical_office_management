@@ -16,7 +16,7 @@
                 </div>
                 <div>
                     <a href="">
-                        <a href=""  class="btn btn-primary">Créer un créneau</a>
+                        <a href="{{ route('appointment.create') }}"  class="btn btn-primary">Créer un créneau</a>
                         <button type="button" class="btn btn-secondary">Trier par</button>
                     </a>
                 </div>
@@ -85,7 +85,50 @@
                                     </div>
                                 </td>
                             </tr>
-                      
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>20/09/2009</td>
+                                <td>Jeudi</td>
+                                <td>09h30</td>
+                                <td>10h00</td>
+                                <td>
+
+                                    <span class="badge bg-success">Libre</span>
+
+                                </td>
+                                <td>
+                                    <a href="" class="btn text-primary"><i
+                                            class="bi bi-pen-fill"></i></a>
+                                    <button type="button" class="btn text-danger" data-bs-toggle="modal"
+                                        data-bs-target="#deleteModal"><i
+                                            class="bi bi-trash3-fill"></i></button>
+
+                                    <!-- Modal de suppression -->
+                                    <div class="modal fade" id="deleteModal" tabindex="-1"
+                                        aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="deleteModalLabel">
+                                                        Supprimer le créneau</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Êtes-vous sûr de vouloir supprimer ce créneau ?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form method="POST" action="">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Fermer</button>
+                                                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
                     </tbody>
                 </table>
             </div>
