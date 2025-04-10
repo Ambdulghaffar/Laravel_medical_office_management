@@ -41,3 +41,6 @@ Route::delete('/user/{id}', [App\Http\Controllers\UserController::class, 'destro
 
 Route::put('/update-status/{id}', [App\Http\Controllers\UserController::class, 'updateStatus'])->name('updateStatus');
 
+
+Route::get('/appointment', [App\Http\Controllers\AppointmentController::class, 'index'])->name('appointment');
+
