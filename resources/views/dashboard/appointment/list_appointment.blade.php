@@ -97,7 +97,7 @@
 
                                 </td>
                                 <td>
-                                    <a href="" class="btn text-primary"><i
+                                    <a href="{{ route('appointment.edit') }}" class="btn text-primary"><i
                                             class="bi bi-pen-fill"></i></a>
                                     <button type="button" class="btn text-danger" data-bs-toggle="modal"
                                         data-bs-target="#deleteModal"><i

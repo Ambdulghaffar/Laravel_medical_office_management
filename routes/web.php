@@ -44,4 +44,5 @@ Route::put('/update-status/{id}', [App\Http\Controllers\UserController::class, '
 
 Route::get('/appointment', [App\Http\Controllers\AppointmentController::class, 'index'])->name('appointment');
 Route::get('/appointment/create', [App\Http\Controllers\AppointmentController::class, 'create'])->name('appointment.create');
+Route::get('/appointment/edit', [App\Http\Controllers\AppointmentController::class, 'edit'])->name('appointment.edit');
 
