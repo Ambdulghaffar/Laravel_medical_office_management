@@ -146,28 +146,33 @@ class AppointmentController extends Controller
     public function reserve($id)
     {
         // Récupère le rendez-vous
-        $appointments = Appointment::find($id);
-    
+        $appointment = Appointment::find($id); // Notez le singulier
+        
         // Récupère l'utilisateur connecté
         $user = auth()->user();
-    
+        
         // Réserve le créneau pour l'utilisateur
-        $appointments->user_id = $user->id;
-        $appointments->availability = 'reserved'; // Change l'état du rendez-vous
-        $appointments->save();
-    
+        $appointment->user_id = $user->id;
+        $appointment->availability = 'reserved'; // Change l'état du rendez-vous
+        $appointment->save();
+        
         // On récupère la date de l'appointment pour déterminer le mois, l'année, et les jours
-        $currentMonth = \Carbon\Carbon::parse($appointments->date_appointment);
+        $currentMonth = \Carbon\Carbon::parse($appointment->date_appointment);
         $previousMonth = $currentMonth->copy()->subMonth()->month;
         $previousYear = $currentMonth->copy()->subMonth()->year;
         $nextMonth = $currentMonth->copy()->addMonth()->month;
         $nextYear = $currentMonth->copy()->addMonth()->year;
         $day = $currentMonth->day;
-    
+        
         // Récupère tous les jours du mois courant
         $daysOfMonth = range(1, $currentMonth->daysInMonth); // Génère les jours du mois
-    
-        return view('dashboard.appointment.take_appointment', compact(
+        
+        // Récupère les rendez-vous pour ce jour-là
+        $appointments = Appointment::whereDate('date_appointment', $currentMonth->format('Y-m-d'))
+                                   ->where('availability', 'available')
+                                   ->get();
+        
+        return redirect()->route('appointment.show', compact(
             'appointments',
             'currentMonth',
             'daysOfMonth',
@@ -176,7 +181,7 @@ class AppointmentController extends Controller
             'nextMonth',
             'nextYear',
             'day'
-        ));
+        ))->with('success', 'Votre rendez-vous a été réservé avec succès.');
     }
     
 

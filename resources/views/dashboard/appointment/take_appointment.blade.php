@@ -20,7 +20,11 @@
                     <h6 class="mb-4 fs-2">Liste des créneaux disponibles</h6>
                 </div>
             </div>
-
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <!-- Affichage du mois actuel avec navigation -->
             <div class="d-flex justify-content-between align-items-center mb-4 mt-3">
                 @if ($previousMonth && $previousYear)
@@ -85,10 +89,11 @@
                                                 <span class="badge bg-success">Libre</span>
                                             </td>
                                             <td>
-                                                <form action="{{ route('appointment.reserve',$appointment->id) }}" method="POST">
+                                                <form action="{{ route('appointment.reserve', $appointment->id) }}"
+                                                    method="POST">
                                                     @csrf
                                                     @method('POST')
-                                                    <button type="submit"  class="btn btn-success">
+                                                    <button type="submit" class="btn btn-success">
                                                         <i class="bi bi-check-circle"></i> Réserver
                                                     </button>
                                                 </form>

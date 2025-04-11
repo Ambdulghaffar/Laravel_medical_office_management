@@ -96,11 +96,12 @@
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="{{ route('dashboard') }}" class="nav-item nav-link {{ Request::routeIs('dashboard') ? 'active' : '' }}"><i
-                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="{{ route('user') }}" class="nav-item nav-link {{ Request::routeIs('user') ? 'active' : '' }}"><i class="bi bi-people"></i>Utilisateurs</a>
-                    <a href="{{ route('appointment') }}" class="nav-item nav-link {{ Request::routeIs('appointment') ? 'active' : '' }}"><i class="bi bi-calendar"></i>Rendez-vous</a>
-                    <a href="{{ route('appointment.show') }}" class="nav-item nav-link {{ Request::routeIs('appointment.show') ? 'active' : '' }}"><i class="bi bi-calendar-check"></i>Réservations</a>
-                    <a href="{{ route('appointment.myAppointment') }}" class="nav-item nav-link {{ Request::routeIs('appointment.myAppointment') ? 'active' : '' }}"><i class="bi bi-calendar-check"></i>Mes Rendez-vous</a>
+                            class="fa fa-tachometer-alt me-3"></i>Dashboard</a>
+                    <a href="{{ route('user') }}" class="nav-item nav-link {{ Request::routeIs('user') ? 'active' : '' }}"><i class="bi bi-people me-3"></i>Utilisateurs</a>
+                    <a href="{{ route('appointment') }}" class="nav-item nav-link {{ Request::routeIs('appointment') ? 'active' : '' }}"><i class="bi bi-calendar me-3"></i>Rendez-vous</a>
+                    <a href="{{ route('appointment.show') }}" class="nav-item nav-link {{ Request::routeIs('appointment.show') ? 'active' : '' }}"><i class="bi bi-calendar-check me-3"></i>Réservations</a>
+                    <a href="{{ route('appointment.myAppointment') }}" class="nav-item nav-link {{ Request::routeIs('appointment.myAppointment') ? 'active' : '' }}"><i class="bi bi-calendar-check me-3"></i>Mes Rendez-vous</a>
+                    <a href="#" class="nav-item nav-link "><i class="bi bi-gear me-3"></i></i>Paramètres</a>
                 </div>
             </nav>
         </div>
