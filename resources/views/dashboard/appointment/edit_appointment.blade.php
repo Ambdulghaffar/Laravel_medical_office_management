@@ -31,7 +31,8 @@
                             <div class="col-md-6 mb-3">
                                 <label for="date_appointment" class="form-label">Date du rendez-vous</label>
                                 <input type="date" class="form-control" id="date_appointment" name="date_appointment"
-                                    value="{{ $appointment->date_appointment->format('Y-m-d') }}" required>
+                                    value="{{ \Carbon\Carbon::parse($appointment->date_appointment)->format('Y-m-d') }}"
+                                    required>
                             </div>
 
                             <div class="col-md-6 mb-3">
@@ -49,9 +50,13 @@
                             <div class="col-md-6 mb-3">
                                 <label for="availability" class="form-label">Disponibilité</label>
                                 <select class="form-select" id="availability" name="availability" required>
-                                    <option value="free" {{ $appointment->availability === 'free' ? 'selected' : '' }}>Libre</option>
-                                    <option value="reserved" {{ $appointment->availability === 'reserved' ? 'selected' : '' }}>Réservé</option>
-                                    <option value="reserved" {{ $appointment->availability === 'unavailable' ? 'selected' : '' }}>Indisponible</option>
+                                    <option value="free" {{ $appointment->availability === 'free' ? 'selected' : '' }}>
+                                        Libre</option>
+                                    <option value="reserved"
+                                        {{ $appointment->availability === 'reserved' ? 'selected' : '' }}>Réservé</option>
+                                    <option value="unavailable"
+                                        {{ $appointment->availability === 'unavailable' ? 'selected' : '' }}>Indisponible
+                                    </option>
                                 </select>
                             </div>
                         </div>
@@ -59,6 +64,16 @@
                         <div class="mt-3 d-flex justify-content-end">
                             <button type="submit" class="btn btn-primary me-3">Modifier</button>
                             <button type="reset" class="btn btn-secondary">Annuler</button>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                         </div>
                     </form>
                 </div>

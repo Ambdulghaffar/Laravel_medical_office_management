@@ -14,9 +14,8 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments=Appointment::all();
-        return view("dashboard.appointment.list_appointment",compact('appointments'));
-        
+        $appointments = Appointment::all();
+        return view("dashboard.appointment.list_appointment", compact('appointments'));
     }
 
     /**
@@ -26,7 +25,7 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        
+
         return view('dashboard.appointment.create_appointment');
     }
 
@@ -45,9 +44,9 @@ class AppointmentController extends Controller
         ]);
 
         Appointment::create([
-            'date_appointment'=>$request->date_appointment,
-            'start_time'=>$request->start_time,
-            'end_time'=>$request->end_time,
+            'date_appointment' => $request->date_appointment,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
         ]);
 
         return redirect()->route('appointment')->with('success', 'Le créneau a été créé  avec succès');
@@ -72,8 +71,8 @@ class AppointmentController extends Controller
      */
     public function edit($id)
     {
-        $appointment=Appointment::findOrFail($id);
-        return view('dashboard.appointment.edit_appointment',compact('appointment'));
+        $appointment = Appointment::findOrFail($id);
+        return view('dashboard.appointment.edit_appointment', compact('appointment'));
     }
 
     /**
@@ -85,8 +84,30 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $appointment = Appointment::findOrFail($id);
+
+        // Validation des données
+        $request->validate([
+            'date_appointment' => 'required|date',
+            'start_time' => 'required|',
+            'end_time' => 'required|after:start_time',
+            'availability' => 'required|in:free,reserved,unavailable',
+        ]);
+
+        $appointment->fill($request->all())->save();
+
+        // Mise à jour du rendez-vous
+  /*       $appointment->update([
+            'date_appointment' => $request->date_appointment,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+            'availability' => $request->availability,
+        ]); */
+
+        // Redirection avec un message de succès
+        return redirect()->route('appointment')->with('success', 'Le créneau a été mis à jour avec succès.');
     }
+
 
     /**
      * Remove the specified resource from storage.
