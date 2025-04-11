@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AppointmentController extends Controller
 {
@@ -58,12 +59,46 @@ class AppointmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
-    {
-        $appointments = Appointment::where('availability', '=', 'free')->get();
-        return view('dashboard.appointment.take_appointment', compact('appointments'));
-    }
-    
+
+
+     public function show(Request $request)
+     {
+         $month = $request->input('month', Carbon::now()->month);
+         $year = $request->input('year', Carbon::now()->year);
+         $day = $request->input('day', null); // Jour sélectionné (optionnel)
+     
+         // Récupérer les rendez-vous pour le mois
+         $appointmentsQuery = Appointment::where('availability', 'free')
+                                          ->whereMonth('date_appointment', $month)
+                                          ->whereYear('date_appointment', $year);
+     
+         // Si un jour spécifique est sélectionné, filtrer les rendez-vous pour ce jour
+         if ($day) {
+             $appointmentsQuery->whereDay('date_appointment', $day);
+         }
+     
+         // Ajouter un tri sur l'heure de début
+         $appointments = $appointmentsQuery->orderBy('start_time')->get(); // Trie par heure de début
+     
+         // Calculer les jours du mois
+         $currentMonth = Carbon::createFromDate($year, $month, 1);
+         $daysInMonth = $currentMonth->daysInMonth;
+         $daysOfMonth = collect(range(1, $daysInMonth)); // Tableau des jours du mois
+     
+         // Navigation vers le mois précédent et suivant
+         $previousMonth = $currentMonth->copy()->subMonth()->month;
+         $previousYear = $currentMonth->copy()->subMonth()->year;
+         $nextMonth = $currentMonth->copy()->addMonth()->month;
+         $nextYear = $currentMonth->copy()->addMonth()->year;
+     
+         return view('dashboard.appointment.take_appointment', compact('appointments', 'currentMonth', 'daysOfMonth', 'previousMonth', 'previousYear', 'nextMonth', 'nextYear', 'day'));
+     }
+     
+     
+     
+     
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -99,7 +134,7 @@ class AppointmentController extends Controller
         $appointment->fill($request->all())->save();
 
         // Mise à jour du rendez-vous
-  /*       $appointment->update([
+        /*       $appointment->update([
             'date_appointment' => $request->date_appointment,
             'start_time' => $request->start_time,
             'end_time' => $request->end_time,
@@ -119,10 +154,10 @@ class AppointmentController extends Controller
      */
     public function destroy($id)
     {
-        
-            $appointment = Appointment::findOrFail($id);
-            $appointment->delete();
-    
-            return redirect()->back()->with('success', 'Le créneau a été supprimé avec succès !');
+
+        $appointment = Appointment::findOrFail($id);
+        $appointment->delete();
+
+        return redirect()->back()->with('success', 'Le créneau a été supprimé avec succès !');
     }
 }
