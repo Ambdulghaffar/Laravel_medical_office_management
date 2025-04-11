@@ -58,10 +58,12 @@ class AppointmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $appointments = Appointment::where('availability', '=', 'free')->get();
+        return view('dashboard.appointment.take_appointment', compact('appointments'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.
