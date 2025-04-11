@@ -60,15 +60,15 @@
                                     <a href="{{ route('appointment.edit', $appointment->id) }}" class="btn text-primary"><i
                                             class="bi bi-pen-fill"></i></a>
                                     <button type="button" class="btn text-danger" data-bs-toggle="modal"
-                                        data-bs-target="#deleteModal"><i class="bi bi-trash3-fill"></i></button>
+                                        data-bs-target="#deleteModal{{ $appointment->id }}"><i class="bi bi-trash3-fill"></i></button>
 
                                     <!-- Modal de suppression -->
-                                    <div class="modal fade" id="deleteModal" tabindex="-1"
-                                        aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="deleteModal{{ $appointment->id }}" tabindex="-1"
+                                        aria-labelledby="deleteModalLabel{{ $appointment->id }}" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="deleteModalLabel">Supprimer le créneau</h5>
+                                                    <h5 class="modal-title" id="deleteModalLabel{{ $appointment->id }}">Supprimer le créneau</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
@@ -76,7 +76,7 @@
                                                     Êtes-vous sûr de vouloir supprimer ce créneau ?
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <form method="POST" action="">
+                                                    <form method="POST" action="{{ route('appointment.destroy',$appointment->id) }}">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="button" class="btn btn-secondary"

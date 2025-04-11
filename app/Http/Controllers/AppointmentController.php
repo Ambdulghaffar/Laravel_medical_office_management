@@ -117,6 +117,10 @@ class AppointmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+            $appointment = Appointment::findOrFail($id);
+            $appointment->delete();
+    
+            return redirect()->back()->with('success', 'Le créneau a été supprimé avec succès !');
     }
 }
