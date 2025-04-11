@@ -30,4 +30,10 @@ class Appointment extends Model
     {
         $this->attributes['availability'] = strtolower($value);
     }
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

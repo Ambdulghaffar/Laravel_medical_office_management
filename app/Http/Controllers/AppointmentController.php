@@ -208,4 +208,33 @@ class AppointmentController extends Controller
 
         return redirect()->back()->with('success', 'Le créneau a été supprimé avec succès !');
     }
+    public function myAppointments()
+    {
+        $user = auth()->user(); // L'utilisateur connecté
+
+        // On récupère ses rendez-vous réservés
+        $appointments = Appointment::where('user_id', $user->id)
+            ->with('user') // Relation avec l'utilisateur (utile pour afficher les infos)
+            ->orderBy('date_appointment', 'asc')
+            ->get();
+
+        return view('dashboard.appointment.my_appointments', compact('appointments', 'user'));
+    }
+
+    public function cancel($id)
+    {
+        $appointment = Appointment::findOrFail($id);
+
+        // Vérification que le rendez-vous appartient bien à l'utilisateur connecté
+        if ($appointment->user_id !== auth()->id()) {
+            abort(403, 'Accès non autorisé.');
+        }
+
+        // Annulation du rendez-vous : remise à disposition
+        $appointment->user_id = null;
+        $appointment->availability = 'free';
+        $appointment->save();
+
+        return redirect()->route('appointment.mine')->with('success', 'Le rendez-vous a été annulé avec succès.');
+    }
 }

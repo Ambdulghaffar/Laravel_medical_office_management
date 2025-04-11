@@ -47,13 +47,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-        /**
+    /**
      * Valeur par défaut pour le champ "status".
      *
      * @var array<string, mixed>
      */
     protected $attributes = [
         'role' => 'patient', // Valeur par défaut
-        'status'=>'pending',
+        'status' => 'pending',
     ];
+
+    // app/Models/User.php
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class, 'user_id');
+    }
 }
