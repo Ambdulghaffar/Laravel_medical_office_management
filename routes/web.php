@@ -54,4 +54,5 @@ Route::get('/appointment/show', [App\Http\Controllers\AppointmentController::cla
 Route::post('/appointment/reserve/{id}', [App\Http\Controllers\AppointmentController::class, 'reserve'])->name('appointment.reserve');
 Route::get('/appointment/myAppointment', [App\Http\Controllers\AppointmentController::class, 'myAppointments'])->name('appointment.myAppointment');
 Route::put('/appointment/{id}/cancel', [App\Http\Controllers\AppointmentController::class, 'cancel'])->name('appointment.cancel');
+Route::get('/appointment/reserved', [App\Http\Controllers\AppointmentController::class, 'reservedAppointment'])->name('appointment.reserved');
 

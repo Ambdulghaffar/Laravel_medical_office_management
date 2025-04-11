@@ -21,8 +21,7 @@ class AppointmentController extends Controller
         $day = $request->input('day', Carbon::today()->day); // Par défaut, on utilise le jour actuel
 
         // Récupérer les rendez-vous pour le mois et le jour
-        $appointmentsQuery = Appointment::where('availability', 'free')
-            ->whereMonth('date_appointment', $month)
+        $appointmentsQuery = Appointment::whereMonth('date_appointment', $month)
             ->whereYear('date_appointment', $year)
             ->whereDay('date_appointment', $day);
 
@@ -147,15 +146,15 @@ class AppointmentController extends Controller
     {
         // Récupère le rendez-vous
         $appointment = Appointment::find($id); // Notez le singulier
-        
+
         // Récupère l'utilisateur connecté
         $user = auth()->user();
-        
+
         // Réserve le créneau pour l'utilisateur
         $appointment->user_id = $user->id;
         $appointment->availability = 'reserved'; // Change l'état du rendez-vous
         $appointment->save();
-        
+
         // On récupère la date de l'appointment pour déterminer le mois, l'année, et les jours
         $currentMonth = \Carbon\Carbon::parse($appointment->date_appointment);
         $previousMonth = $currentMonth->copy()->subMonth()->month;
@@ -163,15 +162,15 @@ class AppointmentController extends Controller
         $nextMonth = $currentMonth->copy()->addMonth()->month;
         $nextYear = $currentMonth->copy()->addMonth()->year;
         $day = $currentMonth->day;
-        
+
         // Récupère tous les jours du mois courant
         $daysOfMonth = range(1, $currentMonth->daysInMonth); // Génère les jours du mois
-        
+
         // Récupère les rendez-vous pour ce jour-là
         $appointments = Appointment::whereDate('date_appointment', $currentMonth->format('Y-m-d'))
-                                   ->where('availability', 'available')
-                                   ->get();
-        
+            ->where('availability', 'available')
+            ->get();
+
         return redirect()->route('appointment.show', compact(
             'appointments',
             'currentMonth',
@@ -183,7 +182,12 @@ class AppointmentController extends Controller
             'day'
         ))->with('success', 'Votre rendez-vous a été réservé avec succès.');
     }
-    
+
+
+    public function reservedAppointment(){
+        $appointments=Appointment::where('availability','=','reserved');
+        return view('dashboard.appointment.reservred_appointment',compact('appointments'));
+    }
 
 
 
@@ -264,6 +268,7 @@ class AppointmentController extends Controller
         // Annulation du rendez-vous : remise à disposition
         $appointment->user_id = null;
         $appointment->availability = 'free';
+        $appointment->user->status = 'canceled';
         $appointment->save();
 
         return redirect()->route('appointment.myAppointment')->with('success', 'Le rendez-vous a été annulé avec succès.');
