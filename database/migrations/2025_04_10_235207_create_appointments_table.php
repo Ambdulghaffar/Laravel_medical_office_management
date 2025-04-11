@@ -18,7 +18,7 @@ return new class extends Migration
             $table->dateTime('date_appointment');
             $table->time('start_time');
             $table->time('end_time');
-            $table->string('Availability')->default('free')->nullable();
+            $table->enum('availability', ['free', 'reserved', 'unavailable'])->default('free');
             $table->timestamps();
         });
     }

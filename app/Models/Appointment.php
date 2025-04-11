@@ -17,7 +17,7 @@ class Appointment extends Model
         'date_appointment',
         'start_time',
         'end_time',
-        'Availability',
+        'availability',
     ];
 
     // Pour éviter les erreurs si tu veux faire $appointment->availability en minuscule
@@ -28,6 +28,6 @@ class Appointment extends Model
 
     public function setAvailabilityAttribute($value)
     {
-        $this->attributes['Availability'] = strtolower($value);
+        $this->attributes['availability'] = strtolower($value);
     }
 }

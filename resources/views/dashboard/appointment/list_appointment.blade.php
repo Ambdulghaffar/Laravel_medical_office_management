@@ -53,7 +53,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="" class="btn text-primary"><i class="bi bi-pen-fill"></i></a>
+                                    <a href="{{ route('appointment.edit', $appointment->id) }}" class="btn text-primary"><i class="bi bi-pen-fill"></i></a>
                                     <button type="button" class="btn text-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash3-fill"></i></button>
 
                                     <!-- Modal de suppression -->

@@ -72,7 +72,8 @@ class AppointmentController extends Controller
      */
     public function edit($id)
     {
-        return view('dashboard.appointment.edit_appointment');
+        $appointment=Appointment::findOrFail($id);
+        return view('dashboard.appointment.edit_appointment',compact('appointment'));
     }
 
     /**
