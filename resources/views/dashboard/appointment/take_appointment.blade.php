@@ -23,9 +23,15 @@
 
             <!-- Affichage du mois actuel avec navigation -->
             <div class="d-flex justify-content-between align-items-center mb-4 mt-3">
-                <a href="{{ route('appointment.show', ['month' => $previousMonth, 'year' => $previousYear]) }}"
-                    class="btn btn-outline-secondary">&lt; Mois précédent</a>
+                @if ($previousMonth && $previousYear)
+                    <a href="{{ route('appointment.show', ['month' => $previousMonth, 'year' => $previousYear]) }}"
+                        class="btn btn-outline-secondary">&lt; Mois précédent</a>
+                @else
+                    <div></div>
+                @endif
+
                 <h4>{{ $currentMonth->translatedFormat('F Y') }}</h4>
+
                 <a href="{{ route('appointment.show', ['month' => $nextMonth, 'year' => $nextYear]) }}"
                     class="btn btn-outline-secondary">Mois suivant &gt;</a>
             </div>

@@ -19,32 +19,32 @@ class AppointmentController extends Controller
         $month = $request->input('month', Carbon::now()->month);
         $year = $request->input('year', Carbon::now()->year);
         $day = $request->input('day', Carbon::today()->day); // Par défaut, on utilise le jour actuel
-        
+
         // Récupérer les rendez-vous pour le mois et le jour
         $appointmentsQuery = Appointment::where('availability', 'free')
-                                         ->whereMonth('date_appointment', $month)
-                                         ->whereYear('date_appointment', $year)
-                                         ->whereDay('date_appointment', $day);
-    
+            ->whereMonth('date_appointment', $month)
+            ->whereYear('date_appointment', $year)
+            ->whereDay('date_appointment', $day);
+
         // Ajouter un tri sur l'heure de début
         $appointments = $appointmentsQuery->orderBy('start_time')->get(); // Tri par heure de début
-    
+
         // Calculer les jours du mois
         $currentMonth = Carbon::createFromDate($year, $month, 1);
         $daysInMonth = $currentMonth->daysInMonth;
         $daysOfMonth = collect(range(1, $daysInMonth)); // Tableau des jours du mois
-    
+
         // Navigation vers le mois précédent et suivant
         $previousMonth = $currentMonth->copy()->subMonth()->month;
         $previousYear = $currentMonth->copy()->subMonth()->year;
         $nextMonth = $currentMonth->copy()->addMonth()->month;
         $nextYear = $currentMonth->copy()->addMonth()->year;
-    
+
         return view('dashboard.appointment.list_appointment', compact('appointments', 'currentMonth', 'daysOfMonth', 'previousMonth', 'previousYear', 'nextMonth', 'nextYear', 'day'));
     }
-    
-    
-    
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -88,43 +88,63 @@ class AppointmentController extends Controller
      */
 
 
-     public function show(Request $request)
-     {
-        $month = $request->input('month', Carbon::now()->month);
-        $year = $request->input('year', Carbon::now()->year);
-        $day = $request->input('day', Carbon::today()->day);
- 
+    public function show(Request $request)
+    {
+        $today = Carbon::today();
+        $month = $request->input('month', $today->month);
+        $year = $request->input('year', $today->year);
+        $day = $request->input('day', $today->day);
 
-         // Récupérer les rendez-vous pour le mois
-         $appointmentsQuery = Appointment::where('availability', 'free')
-                                          ->whereMonth('date_appointment', $month)
-                                          ->whereYear('date_appointment', $year);
-     
-         // Si un jour spécifique est sélectionné, filtrer les rendez-vous pour ce jour
-         if ($day) {
-             $appointmentsQuery->whereDay('date_appointment', $day);
-         }
-     
-         // Ajouter un tri sur l'heure de début
-         $appointments = $appointmentsQuery->orderBy('start_time')->get(); // Trie par heure de début
-     
-         // Calculer les jours du mois
-         $currentMonth = Carbon::createFromDate($year, $month, 1);
-         $daysInMonth = $currentMonth->daysInMonth;
-         $daysOfMonth = collect(range(1, $daysInMonth)); // Tableau des jours du mois
-     
-         // Navigation vers le mois précédent et suivant
-         $previousMonth = $currentMonth->copy()->subMonth()->month;
-         $previousYear = $currentMonth->copy()->subMonth()->year;
-         $nextMonth = $currentMonth->copy()->addMonth()->month;
-         $nextYear = $currentMonth->copy()->addMonth()->year;
-     
-         return view('dashboard.appointment.take_appointment', compact('appointments', 'currentMonth', 'daysOfMonth', 'previousMonth', 'previousYear', 'nextMonth', 'nextYear', 'day'));
-     }
-     
-     
-     
-     
+        // Bloquer l'accès aux mois passés
+        if ($year < $today->year || ($year == $today->year && $month < $today->month)) {
+            return redirect()->route('appointment.show'); // Redirige vers le mois en cours
+        }
+
+        // Récupérer les rendez-vous pour le mois/année
+        $appointmentsQuery = Appointment::where('availability', 'free')
+            ->whereMonth('date_appointment', $month)
+            ->whereYear('date_appointment', $year);
+
+        if ($day) {
+            $appointmentsQuery->whereDay('date_appointment', $day);
+        }
+
+        $appointments = $appointmentsQuery->orderBy('start_time')->get();
+
+        // Construction des jours du mois (filtrés si mois en cours)
+        $currentMonth = Carbon::createFromDate($year, $month, 1);
+        $daysInMonth = $currentMonth->daysInMonth;
+
+        $startDay = ($month == $today->month && $year == $today->year) ? $today->day : 1;
+        $daysOfMonth = collect(range($startDay, $daysInMonth));
+
+        // Pas de mois précédent si on est sur le mois/année actuels
+        $previousMonth = null;
+        $previousYear = null;
+        if (!($month == $today->month && $year == $today->year)) {
+            $previousMonth = $currentMonth->copy()->subMonth()->month;
+            $previousYear = $currentMonth->copy()->subMonth()->year;
+        }
+
+        $nextMonth = $currentMonth->copy()->addMonth()->month;
+        $nextYear = $currentMonth->copy()->addMonth()->year;
+
+        return view('dashboard.appointment.take_appointment', compact(
+            'appointments',
+            'currentMonth',
+            'daysOfMonth',
+            'previousMonth',
+            'previousYear',
+            'nextMonth',
+            'nextYear',
+            'day'
+        ));
+    }
+
+
+
+
+
 
 
 
