@@ -100,6 +100,7 @@
                     <a href="{{ route('user') }}" class="nav-item nav-link {{ Request::routeIs('user') ? 'active' : '' }}"><i class="bi bi-people"></i>Utilisateurs</a>
                     <a href="{{ route('appointment') }}" class="nav-item nav-link {{ Request::routeIs('appointment') ? 'active' : '' }}"><i class="bi bi-calendar"></i>Rendez-vous</a>
                     <a href="{{ route('appointment.show') }}" class="nav-item nav-link {{ Request::routeIs('appointment.show') ? 'active' : '' }}"><i class="bi bi-calendar-check"></i>Réservations</a>
+                    <a href="{{ route('appointment.myAppointment') }}" class="nav-item nav-link {{ Request::routeIs('appointment.myAppointment') ? 'active' : '' }}"><i class="bi bi-calendar-check"></i>Mes Rendez-vous</a>
                 </div>
             </nav>
         </div>

@@ -48,6 +48,9 @@ Route::get('/appointment/{id}/edit', [App\Http\Controllers\AppointmentController
 Route::post('/appointment/store', [App\Http\Controllers\AppointmentController::class, 'store'])->name('appointment.store');
 Route::put('/appointment/{id}', [App\Http\Controllers\AppointmentController::class, 'update'])->name('appointment.update');
 Route::delete('/appointment/{id}', [App\Http\Controllers\AppointmentController::class, 'destroy'])->name('appointment.destroy');
+
+
 Route::get('/appointment/show', [App\Http\Controllers\AppointmentController::class, 'show'])->name('appointment.show');
-Route::get('/appointment/my_appointment', [App\Http\Controllers\AppointmentController::class, 'myAppointments'])->name('appointment.my_appointment');
+Route::get('/appointment/myAppointment', [App\Http\Controllers\AppointmentController::class, 'myAppointments'])->name('appointment.myAppointment');
+Route::put('/appointment/{id}/cancel', [App\Http\Controllers\AppointmentController::class, 'cancel'])->name('appointment.cancel');
 

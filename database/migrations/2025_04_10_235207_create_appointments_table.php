@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id'); // lien vers users
+            $table->unsignedBigInteger('user_id')->nullable(); // lien vers users
             $table->dateTime('date_appointment');
             $table->time('start_time');
             $table->time('end_time');

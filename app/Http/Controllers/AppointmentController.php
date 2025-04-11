@@ -218,7 +218,7 @@ class AppointmentController extends Controller
             ->orderBy('date_appointment', 'asc')
             ->get();
 
-        return view('dashboard.appointment.my_appointments', compact('appointments', 'user'));
+        return view('dashboard.appointment.my_appointment', compact('appointments', 'user'));
     }
 
     public function cancel($id)
