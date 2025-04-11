@@ -300,10 +300,7 @@ class AppointmentController extends Controller
     {
         $appointment = Appointment::findOrFail($id);
 
-        // Vérification que le rendez-vous appartient bien à l'utilisateur connecté
-        if ($appointment->user_id !== auth()->id()) {
-            abort(403, 'Accès non autorisé.');
-        }
+
         if ($appointment->user) {
             $user = $appointment->user;
             $user->status = 'canceled';
@@ -315,6 +312,6 @@ class AppointmentController extends Controller
         $appointment->availability = 'free';
         $appointment->save();
 
-        return redirect()->route('appointment.myAppointment')->with('success', 'Le rendez-vous a été annulé avec succès.');
+        return redirect()->back()->with('success', 'Le rendez-vous a été annulé avec succès.');
     }
 }
