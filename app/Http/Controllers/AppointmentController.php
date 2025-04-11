@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -13,7 +14,8 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        return view("dashboard.appointment.list_appointment");
+        $appointments=Appointment::all();
+        return view("dashboard.appointment.list_appointment",compact('appointments'));
         
     }
 
@@ -24,6 +26,7 @@ class AppointmentController extends Controller
      */
     public function create()
     {
+        
         return view('dashboard.appointment.create_appointment');
     }
 
@@ -35,7 +38,19 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'date_appointment' => 'required|date',
+            'start_time' => 'required|date_format:H:i',
+            'end_time' => 'required|date_format:H:i|after:start_time', // L'heure de fin doit être après l'heure de début
+        ]);
+
+        Appointment::create([
+            'date_appointment'=>$request->date_appointment,
+            'start_time'=>$request->start_time,
+            'end_time'=>$request->end_time,
+        ]);
+
+        return redirect()->route('appointment')->with('success', 'Le créneau a été créé  avec succès');
     }
 
     /**
@@ -55,7 +70,7 @@ class AppointmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
         return view('dashboard.appointment.edit_appointment');
     }
