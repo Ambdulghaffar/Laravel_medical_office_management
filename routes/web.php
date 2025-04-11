@@ -51,6 +51,7 @@ Route::delete('/appointment/{id}', [App\Http\Controllers\AppointmentController::
 
 
 Route::get('/appointment/show', [App\Http\Controllers\AppointmentController::class, 'show'])->name('appointment.show');
+Route::post('/appointment/reserve/{id}', [App\Http\Controllers\AppointmentController::class, 'reserve'])->name('appointment.reserve');
 Route::get('/appointment/myAppointment', [App\Http\Controllers\AppointmentController::class, 'myAppointments'])->name('appointment.myAppointment');
 Route::put('/appointment/{id}/cancel', [App\Http\Controllers\AppointmentController::class, 'cancel'])->name('appointment.cancel');
 

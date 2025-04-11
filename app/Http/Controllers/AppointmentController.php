@@ -143,6 +143,42 @@ class AppointmentController extends Controller
 
 
 
+    public function reserve($id)
+    {
+        // Récupère le rendez-vous
+        $appointments = Appointment::find($id);
+    
+        // Récupère l'utilisateur connecté
+        $user = auth()->user();
+    
+        // Réserve le créneau pour l'utilisateur
+        $appointments->user_id = $user->id;
+        $appointments->availability = 'reserved'; // Change l'état du rendez-vous
+        $appointments->save();
+    
+        // On récupère la date de l'appointment pour déterminer le mois, l'année, et les jours
+        $currentMonth = \Carbon\Carbon::parse($appointments->date_appointment);
+        $previousMonth = $currentMonth->copy()->subMonth()->month;
+        $previousYear = $currentMonth->copy()->subMonth()->year;
+        $nextMonth = $currentMonth->copy()->addMonth()->month;
+        $nextYear = $currentMonth->copy()->addMonth()->year;
+        $day = $currentMonth->day;
+    
+        // Récupère tous les jours du mois courant
+        $daysOfMonth = range(1, $currentMonth->daysInMonth); // Génère les jours du mois
+    
+        return view('dashboard.appointment.take_appointment', compact(
+            'appointments',
+            'currentMonth',
+            'daysOfMonth',
+            'previousMonth',
+            'previousYear',
+            'nextMonth',
+            'nextYear',
+            'day'
+        ));
+    }
+    
 
 
 
@@ -180,16 +216,6 @@ class AppointmentController extends Controller
         ]);
 
         $appointment->fill($request->all())->save();
-
-        // Mise à jour du rendez-vous
-        /*       $appointment->update([
-            'date_appointment' => $request->date_appointment,
-            'start_time' => $request->start_time,
-            'end_time' => $request->end_time,
-            'availability' => $request->availability,
-        ]); */
-
-        // Redirection avec un message de succès
         return redirect()->route('appointment')->with('success', 'Le créneau a été mis à jour avec succès.');
     }
 
@@ -235,6 +261,6 @@ class AppointmentController extends Controller
         $appointment->availability = 'free';
         $appointment->save();
 
-        return redirect()->route('appointment.mine')->with('success', 'Le rendez-vous a été annulé avec succès.');
+        return redirect()->route('appointment.myAppointment')->with('success', 'Le rendez-vous a été annulé avec succès.');
     }
 }

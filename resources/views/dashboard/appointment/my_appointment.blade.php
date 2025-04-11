@@ -48,16 +48,16 @@
                                     <td>{{ $appointment->user->name }} {{ $appointment->user->lastname }}</td>
                                     <td>{{ $appointment->user->address }}</td>
                                     <td>
-                                        @if ($appointment->status == 'pending')
+                                        @if ($appointment->user->status == 'pending')
                                             <span class="text-warning fw-bold">En attente</span>
-                                        @elseif ($appointment->status == 'consulted')
+                                        @elseif ($appointment->user->status == 'consulted')
                                             <span class="text-info fw-bold">Consulté</span>
-                                        @elseif ($appointment->status == 'canceled')
+                                        @elseif ($appointment->user->status == 'canceled')
                                             <span class="text-danger fw-bold">Annulé</span>
-                                        @elseif ($appointment->status == 'completed')
+                                        @elseif ($appointment->user->status == 'completed')
                                             <span class="text-success fw-bold">Complété</span>
                                         @else
-                                            <span class="text-secondary fw-bold">{{ $appointment->status }}</span>
+                                            <span class="text-secondary fw-bold">{{ $appointment->user->status }}</span>
                                         @endif
                                     </td>
                                     <td>{{ \Carbon\Carbon::parse($appointment->date_appointment)->format('d/m/Y') }}</td>

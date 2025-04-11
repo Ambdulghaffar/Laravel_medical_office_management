@@ -53,7 +53,7 @@
                 <div class="mt-5">
                     <h5>Rendez-vous pour le {{ $day }}/{{ $currentMonth->month }}/{{ $currentMonth->year }}</h5>
 
-                    @if ($appointments->isEmpty())
+                    @if ($appointments->count() == 0)
                         <div class="alert alert-warning">
                             Aucun rendez-vous disponible pour ce jour-là. Veuillez choisir un autre jour.
                         </div>
@@ -85,9 +85,13 @@
                                                 <span class="badge bg-success">Libre</span>
                                             </td>
                                             <td>
-                                                <a href="#" class="btn btn-success">
-                                                    <i class="bi bi-check-circle"></i> Réserver
-                                                </a>
+                                                <form action="{{ route('appointment.reserve',$appointment->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <button type="submit"  class="btn btn-success">
+                                                        <i class="bi bi-check-circle"></i> Réserver
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
