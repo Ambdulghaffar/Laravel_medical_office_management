@@ -31,28 +31,43 @@ Route::post('/register', [App\Http\Controllers\RegisterController::class, 'store
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
 Route::post('/login', [App\Http\Controllers\LoginController::class, 'store'])->name('login.store');
 
-Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
-Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
-Route::get('/user/create', [App\Http\Controllers\UserController::class, 'create'])->name('user.create');
-Route::get('/user/{id}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
-Route::post('/user/store', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
-Route::put('/user/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
-Route::delete('/user/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');
-
-Route::put('/update-status/{id}', [App\Http\Controllers\UserController::class, 'updateStatus'])->name('updateStatus');
 
 
-Route::get('/appointment', [App\Http\Controllers\AppointmentController::class, 'index'])->name('appointment');
-Route::get('/appointment/create', [App\Http\Controllers\AppointmentController::class, 'create'])->name('appointment.create');
-Route::get('/appointment/{id}/edit', [App\Http\Controllers\AppointmentController::class, 'edit'])->name('appointment.edit');
-Route::post('/appointment/store', [App\Http\Controllers\AppointmentController::class, 'store'])->name('appointment.store');
-Route::put('/appointment/{id}', [App\Http\Controllers\AppointmentController::class, 'update'])->name('appointment.update');
-Route::delete('/appointment/{id}', [App\Http\Controllers\AppointmentController::class, 'destroy'])->name('appointment.destroy');
+// Interface commune 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/user/settings', [App\Http\Controllers\DashboardController::class, 'settings'])->name('user.settings');
+    Route::put('/appointment/{id}/cancel', [App\Http\Controllers\AppointmentController::class, 'cancel'])->name('appointment.cancel');
+});
 
 
-Route::get('/appointment/show', [App\Http\Controllers\AppointmentController::class, 'show'])->name('appointment.show');
-Route::post('/appointment/reserve/{id}', [App\Http\Controllers\AppointmentController::class, 'reserve'])->name('appointment.reserve');
-Route::get('/appointment/myAppointment', [App\Http\Controllers\AppointmentController::class, 'myAppointments'])->name('appointment.myAppointment');
-Route::put('/appointment/{id}/cancel', [App\Http\Controllers\AppointmentController::class, 'cancel'])->name('appointment.cancel');
-Route::get('/appointment/reserved', [App\Http\Controllers\AppointmentController::class, 'reservedAppointment'])->name('appointment.reserved');
 
+//Interface commune au médecin et à la secrétaire
+Route::middleware(['auth', 'role:doctor,secretary'])->group(function () {
+    Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
+    Route::get('/user/create', [App\Http\Controllers\UserController::class, 'create'])->name('user.create');
+    Route::get('/user/{id}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
+    Route::post('/user/store', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
+    Route::put('/user/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
+    Route::delete('/user/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');
+    Route::put('/update-status/{id}', [App\Http\Controllers\UserController::class, 'updateStatus'])->name('updateStatus');
+
+    Route::get('/appointment', [App\Http\Controllers\AppointmentController::class, 'index'])->name('appointment');
+    Route::get('/appointment/create', [App\Http\Controllers\AppointmentController::class, 'create'])->name('appointment.create');
+    Route::get('/appointment/{id}/edit', [App\Http\Controllers\AppointmentController::class, 'edit'])->name('appointment.edit');
+    Route::post('/appointment/store', [App\Http\Controllers\AppointmentController::class, 'store'])->name('appointment.store');
+    Route::put('/appointment/{id}', [App\Http\Controllers\AppointmentController::class, 'update'])->name('appointment.update');
+    Route::delete('/appointment/{id}', [App\Http\Controllers\AppointmentController::class, 'destroy'])->name('appointment.destroy');
+
+    Route::get('/appointment/reserved', [App\Http\Controllers\AppointmentController::class, 'reservedAppointment'])->name('appointment.reserved');
+});
+
+
+
+
+// Interface pour le patient
+Route::middleware(['auth', 'role:patient'])->group(function () {
+    Route::get('/appointment/show', [App\Http\Controllers\AppointmentController::class, 'show'])->name('appointment.show');
+    Route::post('/appointment/reserve/{id}', [App\Http\Controllers\AppointmentController::class, 'reserve'])->name('appointment.reserve');
+    Route::get('/appointment/myAppointment', [App\Http\Controllers\AppointmentController::class, 'myAppointments'])->name('appointment.myAppointment');
+});

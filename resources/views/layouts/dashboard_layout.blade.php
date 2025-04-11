@@ -97,12 +97,20 @@
                 <div class="navbar-nav w-100">
                     <a href="{{ route('dashboard') }}" class="nav-item nav-link {{ Request::routeIs('dashboard') ? 'active' : '' }}"><i
                             class="fa fa-tachometer-alt me-3"></i>Dashboard</a>
-                    <a href="{{ route('user') }}" class="nav-item nav-link {{ Request::routeIs('user') ? 'active' : '' }}"><i class="bi bi-people me-3"></i>Utilisateurs</a>
-                    <a href="{{ route('appointment') }}" class="nav-item nav-link {{ Request::routeIs('appointment') ? 'active' : '' }}"><i class="bi bi-calendar me-3"></i>Créneaux</a>
-                    <a href="{{ route('appointment.show') }}" class="nav-item nav-link {{ Request::routeIs('appointment.show') ? 'active' : '' }}"><i class="bi bi-calendar-check me-3"></i>Réservations</a>
-                    <a href="{{ route('appointment.myAppointment') }}" class="nav-item nav-link {{ Request::routeIs('appointment.myAppointment') ? 'active' : '' }}"><i class="bi bi-calendar-check me-3"></i>Mes Rendez-vous</a>
-                    <a href="{{ route('appointment.reserved') }}" class="nav-item nav-link {{ Request::routeIs('appointment.reserved') ? 'active' : '' }}"><i class="bi bi-calendar-event me-3"></i>Les Rendez-vous</a>
-                    <a href="#" class="nav-item nav-link "><i class="bi bi-gear me-3"></i></i>Paramètres</a>
+                            @auth
+                                @if (auth()->user()->role === 'doctor' || auth()->user()->role === 'secretary' )
+                                <a href="{{ route('user') }}" class="nav-item nav-link {{ Request::routeIs('user') ? 'active' : '' }}"><i class="bi bi-people me-3"></i>Utilisateurs</a>
+                                <a href="{{ route('appointment') }}" class="nav-item nav-link {{ Request::routeIs('appointment') ? 'active' : '' }}"><i class="bi bi-calendar me-3"></i>Créneaux</a>      
+                                <a href="{{ route('appointment.reserved') }}" class="nav-item nav-link {{ Request::routeIs('appointment.reserved') ? 'active' : '' }}"><i class="bi bi-calendar-event me-3"></i>Les Rendez-vous</a>
+                                @endif
+                            @endauth
+                            @auth
+                                @if (auth()->user()->role === 'patient')
+                                <a href="{{ route('appointment.show') }}" class="nav-item nav-link {{ Request::routeIs('appointment.show') ? 'active' : '' }}"><i class="bi bi-calendar-check me-3"></i>Réservations</a>
+                                <a href="{{ route('appointment.myAppointment') }}" class="nav-item nav-link {{ Request::routeIs('appointment.myAppointment') ? 'active' : '' }}"><i class="bi bi-calendar-check me-3"></i>Mes Rendez-vous</a>
+                                @endif
+                            @endauth
+                    <a href="{{ route('user.settings') }}" class="nav-item nav-link {{ Request::routeIs('user.settings' ? 'active' : '') }} "><i class="bi bi-gear me-3"></i></i>Paramètres</a>
                 </div>
             </nav>
         </div>
