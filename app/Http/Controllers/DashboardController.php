@@ -26,7 +26,8 @@ class DashboardController extends Controller
             'address' => 'string|max:255',
             'email' => 'email|unique:users,email,' . $id,
             'phone' => 'string|regex:/^\+?[0-9]{10,15}$/|unique:users,phone,' . $id,
-            'role' => 'in:patient,doctor,secretary',
+            'sex'=>'string|max:255',
+            'birthday'=>'string|max:255',
         ]);
 
         // Mise à jour des informations de l'utilisateur
