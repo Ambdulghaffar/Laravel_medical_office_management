@@ -20,9 +20,8 @@
                 <div>
                     <h6 class="mb-4 fs-2">Liste des créneaux</h6>
                 </div>
-                <div>
+                <div class="me-2">
                     <a href="{{ route('appointment.create') }}" class="btn btn-primary">Créer un créneau</a>
-                    <button type="button" class="btn btn-secondary">Trier par</button>
                 </div>
             </div>
 

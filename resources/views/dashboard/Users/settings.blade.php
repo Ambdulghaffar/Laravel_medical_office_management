@@ -132,7 +132,7 @@
                     <div class="bg-white rounded shadow-sm p-4">
                         <h5 class="mb-4 text-muted">Réinitialiser le mot de passe</h5>
                         
-                        <form method="POST" action="">
+                        <form method="POST" action="{{ route('user.password.update') }}">
                             @csrf
                             @method('PUT')
                             
