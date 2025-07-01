@@ -20,7 +20,7 @@
                     <div class="bg-white rounded shadow-sm p-4 mb-4">
                         <h5 class="mb-4 text-muted">Détails personnels</h5>
                         
-                        <form method="POST" action="">
+                        <form method="POST" action="{{ route('user.settings') }}">
                             @csrf
                             @method('PUT')
                             
@@ -39,10 +39,10 @@
 
                                 <!-- Prénom -->
                                 <div class="col-md-6 mb-3">
-                                    <label for="last_name" class="form-label">Prénom</label>
-                                    <input type="text" class="form-control @error('last_name') is-invalid @enderror" 
-                                           id="first_name" name="first_name" value="{{ old('last_name', auth()->user()->lastname) }}" required>
-                                    @error('last_name')
+                                    <label for="lastname" class="form-label">Prénom</label>
+                                    <input type="text" class="form-control @error('lastname') is-invalid @enderror" 
+                                           id="lastname" name="lastname" value="{{ old('lastname', auth()->user()->lastname) }}" required>
+                                    @error('lastname')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
