@@ -60,10 +60,12 @@
         <div class="top_menu row m0">
             <div class="container">
                 <div class="float-left">
-                    <a class="dn_btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=medical@example.com" target="_blank">
+                    <a class="dn_btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=medical@example.com"
+                        target="_blank">
                         <i class="bi bi-envelope"></i> medical@example.com
-                    </a>                    
-                    <a href="https://maps.google.com?q=123+Medical+Street+City" class="dn_btn" > <i class="bi bi-geo-alt"></i>Trouver notre emplacement</a>
+                    </a>
+                    <a href="https://maps.google.com?q=123+Medical+Street+City" class="dn_btn"> <i
+                            class="bi bi-geo-alt"></i>Trouver notre emplacement</a>
                 </div>
                 <div class="float-right">
                     <ul class="list header_social">
@@ -93,8 +95,18 @@
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
                             <li class="nav-item"><a class="nav-link" href="{{ route('/') }}"></i>Acceuil</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Inscription</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Se connecter</a></li>
+                            @if (Auth::check())
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold text-primary" href="{{ route('dashboard') }}">
+                                        <i class="bi bi-speedometer2"></i> Tableau de bord
+                                    </a>
+                                </li>
+                            @else
+                                <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Inscription</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Se connecter</a>
+                                </li>
+                            @endif
                             <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
                         </ul>
                     </div>

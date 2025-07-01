@@ -302,11 +302,11 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="appointment-form">
-                            <h3>Prendre un rendez-vous</h3>
+                            <h3>Envoyez-nous un message</h3>
                             <form action="#">
                                 <div class="form-group">
                                     <label>Nom complet</label>
-                                    <input type="text" placeholder="Votre Nom" onfocus="this.placeholder = ''"
+                                    <input type="text" placeholder="Votre Nom complet" onfocus="this.placeholder = ''"
                                         onblur="this.placeholder = 'Your Name'" required>
                                 </div>
                                 <div class="form-group">
@@ -319,7 +319,7 @@
                                     <textarea name="message" cols="20" rows="7" placeholder="Message" onfocus="this.placeholder = ''"
                                         onblur="this.placeholder = 'Message'" required></textarea>
                                 </div>
-                                <a href="#" class="main_btn">Prendre rendez-vous</a>
+                                <a href="#" class="main_btn">Envoyer le messsage</a>
                             </form>
                         </div>
                     </div>
