@@ -87,13 +87,13 @@
 
                                 <!-- Sexe -->
                                 <div class="col-md-6 mb-3">
-                                    <label for="gender" class="form-label">Sexe</label>
-                                    <select class="form-select @error('gender') is-invalid @enderror" id="gender" name="gender">
+                                    <label for="sex" class="form-label">Sexe</label>
+                                    <select class="form-select @error('sex') is-invalid @enderror" id="gender" name="gender">
                                         <option value="">Sélectionner votre sexe</option>
-                                        <option value="homme" {{ old('gender', auth()->user()->gender ?? '') == 'homme' ? 'selected' : '' }}>Homme</option>
-                                        <option value="femme" {{ old('gender', auth()->user()->gender ?? '') == 'femme' ? 'selected' : '' }}>Femme</option>
+                                        <option value="homme" {{ old('sex', auth()->user()->sex ?? '') == 'homme' ? 'selected' : '' }}>Homme</option>
+                                        <option value="femme" {{ old('sex', auth()->user()->sex ?? '') == 'femme' ? 'selected' : '' }}>Femme</option>
                                     </select>
-                                    @error('gender')
+                                    @error('sex')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

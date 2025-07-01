@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('address');
             $table->string('email')->unique();
             $table->string('phone')->unique();
+            $table->string('birthday')->nullable();
+            $table->string('sex')->nullable();
             $table->enum('role',['patient','secretary','doctor'])->default('patient')->nullable();
             $table->enum('status',['pending', 'consulted', 'canceled','completed'])->default('pending')->nullable();
             $table->timestamp('email_verified_at')->nullable();
