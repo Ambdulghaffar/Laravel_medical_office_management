@@ -29,7 +29,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="name" class="form-label">Nom</label>
                                     <input type="text" class="form-control @error('name') is-invalid @enderror" 
-                                           id="name" name="name" value="{{ old('name', auth()->user()->last_name ?? 'Rafael') }}" required>
+                                           id="name" name="name" value="{{ old('name', auth()->user()->name ) }}" required>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -41,7 +41,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="last_name" class="form-label">Prénom</label>
                                     <input type="text" class="form-control @error('last_name') is-invalid @enderror" 
-                                           id="first_name" name="first_name" value="{{ old('last_name', auth()->user()->last_name ?? 'ali') }}" required>
+                                           id="first_name" name="first_name" value="{{ old('last_name', auth()->user()->lastname) }}" required>
                                     @error('last_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -65,7 +65,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="phone" class="form-label">Téléphone</label>
                                     <input type="tel" class="form-control @error('phone') is-invalid @enderror" 
-                                           id="phone" name="phone" value="{{ old('phone', auth()->user()->phone ?? '0632888924') }}">
+                                           id="phone" name="phone" value="{{ old('phone', auth()->user()->phone) }}">
                                     @error('phone')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -77,7 +77,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="address" class="form-label">Adresse</label>
                                     <input type="text" class="form-control @error('address') is-invalid @enderror" 
-                                           id="address" name="address" value="{{ old('address', auth()->user()->address ?? 'Martil') }}">
+                                           id="address" name="address" value="{{ old('address', auth()->user()->address) }}">
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
