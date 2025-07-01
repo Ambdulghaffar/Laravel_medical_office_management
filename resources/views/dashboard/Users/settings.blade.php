@@ -10,6 +10,11 @@
                 </ol>
             </nav>
 
+            @if (session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
+
+
             <div class="d-flex justify-content-between mt-5">
                 <h6 class="mb-4 fs-2">Paramètres du compte</h6>
             </div>
@@ -20,7 +25,7 @@
                     <div class="bg-white rounded shadow-sm p-4 mb-4">
                         <h5 class="mb-4 text-muted">Détails personnels</h5>
                         
-                        <form method="POST" action="{{ route('user.settings') }}">
+                        <form method="POST" action="{{ route('user.settings.update', auth()->user()->id) }}">
                             @csrf
                             @method('PUT')
                             
@@ -53,7 +58,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="email" class="form-label">Email</label>
                                     <input type="email" class="form-control @error('email') is-invalid @enderror" 
-                                           id="email" name="email" value="{{ old('email', auth()->user()->email ?? 'salim@gmail.com') }}" required>
+                                           id="email" name="email" value="{{ old('email', auth()->user()->email ) }}" required>
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -88,10 +93,10 @@
                                 <!-- Sexe -->
                                 <div class="col-md-6 mb-3">
                                     <label for="sex" class="form-label">Sexe</label>
-                                    <select class="form-select @error('sex') is-invalid @enderror" id="gender" name="gender">
+                                    <select class="form-select @error('sex') is-invalid @enderror" id="sex" name="sex">
                                         <option value="">Sélectionner votre sexe</option>
-                                        <option value="homme" {{ old('sex', auth()->user()->sex ?? '') == 'homme' ? 'selected' : '' }}>Homme</option>
-                                        <option value="femme" {{ old('sex', auth()->user()->sex ?? '') == 'femme' ? 'selected' : '' }}>Femme</option>
+                                        <option value="male" {{ old('sex', auth()->user()->sex ?? '') == 'male' ? 'selected' : '' }}>Homme</option>
+                                        <option value="female" {{ old('sex', auth()->user()->sex ?? '') == 'female' ? 'selected' : '' }}>Femme</option>
                                     </select>
                                     @error('sex')
                                         <span class="invalid-feedback" role="alert">
@@ -102,11 +107,11 @@
 
                                 <!-- Date de naissance -->
                                 <div class="col-md-12 mb-3">
-                                    <label for="birth_date" class="form-label">Date de naissance</label>
-                                    <input type="date" class="form-control @error('birth_date') is-invalid @enderror" 
-                                           id="birth_date" name="birth_date" value="{{ old('birth_date', auth()->user()->birth_date ?? '') }}" 
+                                    <label for="birthday" class="form-label">Date de naissance</label>
+                                    <input type="date" class="form-control @error('birthday') is-invalid @enderror" 
+                                           id="birthday" name="birthday" value="{{ old('birthday', auth()->user()->birth_date ?? '') }}" 
                                            placeholder="jj/mm/aaaa">
-                                    @error('birth_date')
+                                    @error('birthday')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -172,18 +177,4 @@
             </div>
         </div>
     </div>
-
-    @if(session('success'))
-        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
-            <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                    <strong class="me-auto text-success">Succès</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body">
-                    {{ session('success') }}
-                </div>
-            </div>
-        </div>
-    @endif
 @endsection
