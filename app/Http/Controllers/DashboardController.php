@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
@@ -36,4 +38,32 @@ class DashboardController extends Controller
         // Redirection avec un message de succès
         return redirect()->route('user.settings')->with('success', 'Tes informations ont été mises à jour avec succès.');
     }
+
+
+    public function update_password(Request $request)
+    {
+        // Récupérer l'utilisateur connecté
+        $user = Auth::user();
+
+        // Valider les champs
+        $request->validate([
+            'current_password' => 'required',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        /** @var \App\Models\User $user */
+        $user = Auth::user();
+
+        // Vérifier si le mot de passe actuel est correct
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors(['current_password' => 'Le mot de passe actuel est incorrect.']);
+        }
+
+        // Mettre à jour le mot de passe
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect()->route('user.settings')->with('success', 'Mot de passe mis à jour avec succès.');
+    }
+
 }

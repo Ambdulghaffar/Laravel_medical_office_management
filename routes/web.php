@@ -38,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::get('/user/settings', [App\Http\Controllers\DashboardController::class, 'settings'])->name('user.settings');
     Route::put('/user/settings/{id}', [App\Http\Controllers\DashboardController::class, 'update_settings'])->name('user.settings.update');
+    Route::put('/user/password', [App\Http\Controllers\DashboardController::class, 'update_password'])->name('user.password.update');
     Route::put('/appointment/{id}/cancel', [App\Http\Controllers\AppointmentController::class, 'cancel'])->name('appointment.cancel');
 });
 
