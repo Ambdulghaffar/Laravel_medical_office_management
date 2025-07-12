@@ -192,7 +192,11 @@
     <!--================ appointment Area Starts =================-->
     <section class="appointment-area">
         <div class="container">
-
+            @if (session('succcess'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="appointment-inner">
                 <div class="row">
                     <div class="col-sm-12 col-lg-5 offset-lg-1">

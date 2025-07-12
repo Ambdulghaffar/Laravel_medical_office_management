@@ -38,7 +38,7 @@ class MessagesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|255',
+            'email' => 'required|email|max:255',
             'name' => 'required|string|max:255',
             'message' => 'required|string|max:255',
             'subject' => 'required|string|max:255',
@@ -53,6 +53,7 @@ class MessagesController extends Controller
             'subject' => $request->subject,
         ]);
 
+      return redirect()->back()->with('success', 'Message envoyé avec succès !');
     }
 
     /**
