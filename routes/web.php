@@ -62,6 +62,7 @@ Route::middleware(['auth', 'role:doctor,secretary'])->group(function () {
     Route::delete('/appointment/{id}', [App\Http\Controllers\AppointmentController::class, 'destroy'])->name('appointment.destroy');
 
     Route::get('/appointment/reserved', [App\Http\Controllers\AppointmentController::class, 'reservedAppointment'])->name('appointment.reserved');
+    Route::get('/messages', [App\Http\Controllers\MessagesController::class, 'index'])->name('messages');
 });
 
 
