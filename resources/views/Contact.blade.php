@@ -77,34 +77,59 @@
                     </h2>
                 </div>
                 <div class="col-lg-8">
-                    <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm"
+                    <form class="form-contact contact_form" action="{{ route('messages.store') }}" method="post" id="contactForm"
                         novalidate="novalidate">
+                        @csrf
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9"
-                                        placeholder="Saisir un message"></textarea>
+                                    <textarea class="form-control w-100 @error('message') is-invalid @enderror" name="message" id="message" cols="30"
+                                        rows="9" placeholder="Saisir un message">{{ old('message') }}</textarea>
+                                    @error('message')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control" name="name" id="name" type="text"
-                                        placeholder="Entrez votre nom complet">
+                                    <input class="form-control @error('name') is-invalid @enderror" name="name"
+                                        id="name" type="text" placeholder="Entrez votre nom complet"
+                                        value="{{ old('name') }}">
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control" name="email" id="email" type="email"
-                                        placeholder="Entrez l'adresse e-mail">
+                                    <input class="form-control @error('email') is-invalid @enderror" name="email"
+                                        id="email" type="email" placeholder="Entrez l'adresse e-mail"
+                                        value="{{ old('email') }}">
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input class="form-control" name="subject" id="subject" type="text"
-                                        placeholder="Entrez le sujet">
+                                    <input class="form-control @error('subject') is-invalid @enderror" name="subject"
+                                        id="subject" type="text" placeholder="Entrez le sujet"
+                                        value="{{ old('subject') }}">
+                                    @error('subject')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-group mt-3">
                             <button type="submit" class="button button-contactForm">Envoyer un message</button>
                         </div>

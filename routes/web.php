@@ -63,6 +63,7 @@ Route::middleware(['auth', 'role:doctor,secretary'])->group(function () {
 
     Route::get('/appointment/reserved', [App\Http\Controllers\AppointmentController::class, 'reservedAppointment'])->name('appointment.reserved');
     Route::get('/messages', [App\Http\Controllers\MessagesController::class, 'index'])->name('messages');
+    Route::get('/messages/store', [App\Http\Controllers\MessagesController::class, 'store'])->name('messages.store');
 });
 
 

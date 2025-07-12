@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Nette\Schema\Message;
+
 
 class MessagesController extends Controller
 {
@@ -34,7 +37,22 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'email' => 'required|email|255',
+            'name' => 'required|string|max:255',
+            'message' => 'required|string|max:255',
+            'subject' => 'required|string|max:255',
+
+        ]);
+
+        // Création de l'utilisateur
+        Message::create([
+            'name' => $request->name,
+            'message' => $request->message,
+            'email' => $request->email,
+            'subject' => $request->subject,
+        ]);
+
     }
 
     /**
