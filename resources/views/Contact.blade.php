@@ -77,8 +77,8 @@
                     </h2>
                 </div>
                 <div class="col-lg-8">
-                    <form class="form-contact contact_form" action="{{ route('messages.store') }}" method="post" id="contactForm"
-                        novalidate="novalidate">
+                    <form class="form-contact contact_form" action="{{ route('messages.store') }}" method="post"
+                        id="contactForm">
                         @csrf
                         <div class="row">
                             <div class="col-12">

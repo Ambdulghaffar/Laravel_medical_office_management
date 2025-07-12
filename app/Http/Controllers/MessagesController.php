@@ -45,7 +45,7 @@ class MessagesController extends Controller
 
         ]);
 
-        // Création de l'utilisateur
+        
         Message::create([
             'name' => $request->name,
             'message' => $request->message,
